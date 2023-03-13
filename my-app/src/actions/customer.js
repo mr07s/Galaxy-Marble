@@ -1,0 +1,53 @@
+import * as api from '../api'
+
+
+
+export const customerdetails =(customerdata,navigate)=>async(dispatch)=>{
+
+try 
+{
+    const {data} = await api.customer(customerdata);
+    dispatch({type:'CUSTOMER_DETAILS',payload:data});
+    dispatch(getdetails());
+
+} 
+catch (error) 
+{
+    console.log(error)
+}
+
+
+
+}
+
+export const deletecustomerdetails =()=>async(dispatch)=>
+{
+
+
+
+    
+}
+
+
+
+
+export const getdetails =() =>async(dispatch)=>
+{
+try
+{
+
+    const {data} =await api.customerdetails();
+    dispatch({type:'GET_DETAILS',payload:data});
+   
+}
+catch (error)
+{
+
+    console.log(error);
+}
+
+  
+
+}
+
+

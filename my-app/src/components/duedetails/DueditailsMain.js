@@ -42,6 +42,24 @@ const DueditailsMain = () => {
 const duedetails =useSelector(state=>state.customerReducer);
 // console.log(duedetails);
 
+// console.log(duedetails);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 const {id} =useParams();
 // console.log(id);
@@ -70,24 +88,27 @@ if(search.toLowerCase() === ''){
   return data;
 }
  
-  if(search.toLowerCase() != '')
+  if(search.toLowerCase() !== '')
   {
       // if(data.Name.toLowerCase().includes(search)){
       //   return data.Name.toLowerCase().includes(search);
       // }
 
-       if(data.undertakenby.toLowerCase().includes(search)){
+       if(data?.undertakenby?.toLowerCase().includes(search))
+       {
         return data.undertakenby.toLowerCase().includes(search);
       }
 
-     else if(data.price.toLowerCase().includes(search)){
+     else if(data?.price?.toLowerCase().includes(search))
+     {
         return data.price.toLowerCase().includes(search);
       }
 
       // else if(data.purchasingdate.includes(search)){
       //   return data.purchasingdate.includes(search);
       // }
-      else if(data.duedate.includes(search)){
+      else if(data?.duedate?.includes(search))
+      {
         return data.duedate.includes(search);
       }
 
@@ -226,6 +247,7 @@ const index=customer.findIndex((customer)=>customer.id===editcustomerId );
 newcustomers[index]=editeddata;
 setcustomer(newcustomers);
 seteditcustomerId(null); 
+
 
 }
 

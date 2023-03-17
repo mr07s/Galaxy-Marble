@@ -11,7 +11,7 @@ const customerdata =new customer(postcustomerdata);
 try{
 
 await customerdata.save();
-res.status(200).json("Saved a customer data sucessfully ");
+res.status(200).json("Customer details dubmitted  sucessfully ");
 
 
 }

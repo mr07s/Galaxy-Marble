@@ -1,8 +1,9 @@
 import { nanoid } from "@reduxjs/toolkit";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { customerdetails } from "../../actions/customer";
+// import Alert from "../Alert";
 import "./Editform.css";
 
 const getLocalitems = () => {
@@ -13,19 +14,22 @@ const getLocalitems = () => {
     return [];
   }
 };
+
+
+
 const Editform = () => {
-  const handleclear = (event) => {
-    inputs[0].value = "";
-    inputs[1].value = "";
-    inputs[2].value = "";
-    inputs[3].value = "";
-    inputs[4].value = "";
-  };
-  var inputs = document.getElementsByClassName("textfield");
+  
+  
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [disable, setDisable] = useState(true);
   const [customer, setcustomer] = useState(getLocalitems());
-  const User = JSON.parse(localStorage.getItem("Profile"));
+   var inputs = document.getElementsByClassName("textfield");
+   const User = JSON.parse(localStorage.getItem("Profile"));
+
+// const [mesage, setMesage] = useState('')
+const Message =useSelector(state=>state.customerReducer);
+
 
   const userId = User?.result?._id;
   var newcustomer;
@@ -37,6 +41,34 @@ const Editform = () => {
     duedate: "",
     userId: userId,
   });
+
+
+
+  const handleclear = (event) => {
+    inputs[0].value = "";
+    inputs[1].value = "";
+    inputs[2].value = "";
+    inputs[3].value = "";
+    inputs[4].value = "";
+
+   setaddFormData('');
+
+
+  };
+
+  
+  const isDisabled = () => {
+    const { Name, undertakenby, price, purchasingdate, duedate } = addFormData;
+    if (Name && undertakenby && price && purchasingdate && duedate)
+      setDisable(false);
+    else setDisable(true);
+  };
+  useEffect(() => {
+    isDisabled();
+
+    // console.log(disable);
+  }, [isDisabled, disable]);
+
   const handlechange = (event) => {
     event.preventDefault();
     const fieldName = event.target.getAttribute("name");
@@ -49,12 +81,13 @@ const Editform = () => {
     event.preventDefault();
 
     newcustomer = {
-      id: nanoid(),
+      // id: nanoid(),
       Name: addFormData.Name,
       undertakenby: addFormData.undertakenby,
       price: addFormData.price,
       purchasingdate: addFormData.purchasingdate,
       duedate: addFormData.duedate,
+
     };
 
     console.log(addFormData);
@@ -62,31 +95,33 @@ const Editform = () => {
     setcustomer(newcustomers);
 
     dispatch(customerdetails(addFormData, navigate));
-
+    // alert(customerdetails(addFormData,
+      // navigate))
     handleclear();
+
+
   };
 
-//   const [disable, setdisable] = useState('true')
-//   {
-// if(addFormData.Name ===''||addFormData.undertakenby ===''||addFormData.price===''||addFormData.price===''||addFormData.duedate===''){
-//   setdisable(false);
+  //   const [disable, setdisable] = useState('true')
+  //   {
+  // if(addFormData.Name ===''||addFormData.undertakenby ===''||addFormData.price===''||addFormData.price===''||addFormData.duedate===''){
+  //   setdisable(false);
 
+  // }
+  //   }
 
-// }
-//   }
+  // console.log('hii');
+  // console.log(addFormData);
+  // Object.values(addFormData).forEach(key => {handlecheck()});
+  // console.log(addFormData.has('Name'));
 
-// console.log('hii');
-// console.log(addFormData);
-// Object.values(addFormData).forEach(key => {handlecheck()});
-// console.log(addFormData.has('Name'));
-
-// console.log(check);
+  // console.log(check);
   return (
     <>
       <h2>Add new customer</h2>
       <form className="Editform" id="myForm">
         <input
-        required
+          required
           type="text"
           name="Name"
           placeholder="Name"
@@ -126,10 +161,19 @@ const Editform = () => {
           className="textfield"
           onChange={handlechange}
         />
-
-        <button id="btn" type="submit"   onClick={handlesubmit}>
+        <button
+          id="btn"
+          type="submit"
+          disabled={disable}
+          onClick={handlesubmit}
+        >
           Submit
         </button>
+
+        {/* {message
+        
+        
+        } */}
       </form>
     </>
   );

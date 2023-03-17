@@ -44,7 +44,24 @@ res.status(404).json({message:error.message});
     
     
     
+}
+export const deleteCustomer= async(req,res)=>{
+    // console.log(req);
+    // let {id:_id} = req.body;
+    const {id:_id} = req.params;
+
+    // console.log(_id);
+    try{
+        await customer.findByIdAndRemove(_id)
+        // console.log(deleteData)
+        // const customerdetails = await customer.find()
+        res.status(200).json({message:"Sucessfully deleted"});
+    
     }
+    catch(error){
+        console.log("Customer deletion unsuccessfull due to "+error.message);
+    }
+}
     
     
     

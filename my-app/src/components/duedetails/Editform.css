@@ -1,16 +1,34 @@
 .Editform{
-    border: 1px solid rgb(0, 0, 0);
+    /* border: 1px solid rgb(0, 0, 0); */
+    backdrop-filter: blur(7px);
 padding: 10px;
-width: 50vw;
+width: 30vw;
 }
 .Editform input{
-    border: 1px solid black;
+    /* border: 1px solid black; */
     padding: 5px;
    font-weight: bold;
    font-size: 1.5rem;
 }
 .Editform button{
     
-background-color: rgb(255, 255, 37);
+background-color: rgb(138, 51, 14);
+height: 3rem;
+border-radius: 50px;
+color: white;
+font-family: 'Sofia Sans Semi Condensed', sans-serif;
+/* font-family: 'Tilt Prism', cursive; */
+font-weight: 900;
+font-size: 30px;
 
+}
+
+.Editform button:hover{
+
+    background-color:  rgb(138, 51, 14);
+    
+}
+
+h2{
+    color: rgba(208, 222, 11, 0.849);
 }

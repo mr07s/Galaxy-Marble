@@ -8,14 +8,7 @@ const ShowProduct = () => {
   const getpdetails = useSelector(state => state.productreducer);
 
   console.log(getpdetails);
-  
-  
-  
-  
-  
-  
-  
-  
+ 
     return (
     <>
 <table>
@@ -31,10 +24,6 @@ const ShowProduct = () => {
 
 ))
 }
-
-
-
-
 
 </tbody>
 </table>

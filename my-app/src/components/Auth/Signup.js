@@ -14,7 +14,7 @@ const [name, setName] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('')
 
-console.log({name,email,password});
+// console.log({name,email,password});
 const handelSubmit =(e)=>{
 
 e.preventDefault();

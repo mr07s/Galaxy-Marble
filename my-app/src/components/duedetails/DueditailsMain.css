@@ -1,4 +1,13 @@
 
+body{
+  background-image: url('../images/books6.jpeg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ background-size: cover;
+ 
+}
+
+
 .app-container {
     display: flex;
     flex-direction: column;
@@ -23,20 +32,25 @@
     text-align: left;
     padding: 1.2rem;
     font-size: 1.5rem;
-  
+  color: rgb(190, 255, 37);
   }
   
   table td{
-    border: 2px solid rgb(0, 0, 0);
+    /* border: 2px solid rgb(0, 0, 0); */
+    border: 1px solid rgb(245, 240, 240);
   
   }
   th {
-    background-color: rgb(117, 201, 250);
+    /* background-color: rgb(117, 201, 250); */
+    backdrop-filter: blur(7px);
+
   
   }
   
   td {
-    background-color: rgb(205, 235, 253);
+    /* background-color: rgb(205, 235, 253); */
+    backdrop-filter: blur(6px);
+color: white;
    
   }
   
@@ -68,4 +82,23 @@
     font-size: 1.2rem;
    
   }
-  
+  .formaddbtn{
+
+width: 10rem;
+height: 3rem;
+border: none;
+border-radius:50px ;
+color: rgb(88, 202, 240);
+background-color: rgb(33, 39, 46);
+font-size: 1.5rem;
+
+
+
+}
+  .formaddbtn:hover{
+
+/* color: rgb(218, 159, 9); */
+color: white;
+background-color: rgb(33, 39, 46);
+
+  }

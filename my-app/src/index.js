@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit'
 import App from './App';
 import {applyMiddleware,compose} from 'redux'
-import 'bootstrap/dist/css/bootstrap.css'
+// import 'bootstrap/dist/css/bootstrap.css'
 import thunk from 'redux-thunk'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom"

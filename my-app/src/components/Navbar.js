@@ -15,19 +15,28 @@ const Navbar = () => {
    
     <>
 <nav  className='navbar'>
-<ul   className='navitems'>
+  <div className='navbarleft'>
+  <ul   className='navitems'>
+   
   <li className='navlist'><Link to='/'>Home</Link></li>
   <li className='navlist'><Link to='/duedetails'>Duedetails</Link></li>
   <li className='navlist'><Link to='/addproduct'>AddProducts</Link></li>
   <li className='navlist'><Link to='/showproduct'>ShowProducts</Link></li>
+
+  </ul>
+  </div>
+
+  <div className="navbarright">
+<ul>
   {
-   user?(  <button className='navlist' onClick={logout}><Link to='/login'>LogOut</Link></button>):
-  <button className='navlist'><Link to='/login'>LogIn</Link></button>
+   user?( 
+    <button className='navlist authbutton' onClick={logout}><Link to='/login'>LogOut</Link></button>):
+  <button className='navlist authbutton'><Link to='/login'>LogIn</Link></button>
   }
-  <li className='navlist'><Link to='/signup'>SignUp</Link></li>
+  <button className='navlist authbutton'><Link to='/signup'>SignUp</Link></button>
  
 </ul>
-
+</div>
 
   </nav>
     </>

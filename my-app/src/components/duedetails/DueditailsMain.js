@@ -12,7 +12,7 @@ import Tablehead from './Tablehead';
 import Readonlyrow from './Readonlyrow';
 import Editform from './Editform';
 import Editablerow from './Editablerow';
-import { customerdetails } from '../../actions/customer';
+import { customerdetails, deletecustomerdetails } from '../../actions/customer';
 
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
@@ -40,7 +40,7 @@ const DueditailsMain = () => {
 
 
 const duedetails =useSelector(state=>state.customerReducer);
-console.log(duedetails);
+// console.log(duedetails);
 
 
 const {id} =useParams();
@@ -49,7 +49,7 @@ const User =JSON.parse(localStorage.getItem('Profile'));
 // const userId= User.result.id;
 const userId= User?.result?._id;
 
-console.log(userId);
+// console.log(userId);
 
 
   const dispatch =useDispatch();
@@ -72,11 +72,11 @@ if(search.toLowerCase() === ''){
  
   if(search.toLowerCase() != '')
   {
-      if(data.Name.toLowerCase().includes(search)){
-        return data.Name.toLowerCase().includes(search);
-      }
+      // if(data.Name.toLowerCase().includes(search)){
+      //   return data.Name.toLowerCase().includes(search);
+      // }
 
-      else if(data.undertakenby.toLowerCase().includes(search)){
+       if(data.undertakenby.toLowerCase().includes(search)){
         return data.undertakenby.toLowerCase().includes(search);
       }
 
@@ -84,9 +84,9 @@ if(search.toLowerCase() === ''){
         return data.price.toLowerCase().includes(search);
       }
 
-      else if(data.purchasingdate.includes(search)){
-        return data.purchasingdate.includes(search);
-      }
+      // else if(data.purchasingdate.includes(search)){
+      //   return data.purchasingdate.includes(search);
+      // }
       else if(data.duedate.includes(search)){
         return data.duedate.includes(search);
       }
@@ -156,6 +156,10 @@ const fieldvalue= event.target.value;
 const newFormData={...addFormData};
 newFormData[fieldName]=fieldvalue;
 setaddFormData(newFormData);
+// console.log(addFormData);
+
+
+
 };
 
 const handleEditchange=(event)=>{
@@ -167,7 +171,7 @@ const fieldvalue=event.target.value;
 const newFormData ={...editFormData};
 newFormData[fieldName]=fieldvalue;
 seteditFormData(newFormData);
-
+setaddFormData(null);
 
 }
 
@@ -256,12 +260,15 @@ const handleCancleclick=()=>{
 
 const handleDeleteclick=(customerId)=>{
 
-const newcustomers=[...customer];
+// const newcustomers=[...customer];
 
-const index =customer.findIndex((customer)=>customer.id===customerId)
+// const index =customer.findIndex((customer)=>customer.id===customerId)
 
-newcustomers.splice(index,1);
-setcustomer(newcustomers);
+// newcustomers.splice(index,1);
+// setcustomer(newcustomers);
+// console.log("This is customer Id"+customerId)
+ dispatch(deletecustomerdetails(customerId));
+
 
 
 }
@@ -315,9 +322,11 @@ localStorage.setItem('info',JSON.stringify(customer))
 </tbody>
 </table>
 </form>
- <button onClick={add}>{editform?'Close':'Add'}</button>
+
+
+ <button onClick={add}  className='formaddbtn' >{editform?'Close':'Add'}</button>
  {editform &&
-<Editform handlechange={handlechange} handlesubmit={handlesubmit} />}
+<Editform />}
 </div>
 
 

@@ -1,8 +1,9 @@
 import React from 'react'
 
 const Readonlyrow = ({data,handleEditclick,handleDeleteclick,index}) => {
+  // console.log(data._id)
   return (
-    <tr key={data.id}>
+    <tr key={data?._id}>
 <td>{index+1}</td>
 <td>{data.Name}</td>
 <td>{data.undertakenby}</td>
@@ -11,7 +12,7 @@ const Readonlyrow = ({data,handleEditclick,handleDeleteclick,index}) => {
 <td>{data.duedate}</td>
 <td>
 <button type='button' onClick={(event)=>handleEditclick(event,data)}>Edit</button>
-<button type='button' onClick={()=>handleDeleteclick(data.id)}>Delete</button>
+<button type='button' onClick={()=>handleDeleteclick(data._id)}>Delete</button>
 </td>
 
 

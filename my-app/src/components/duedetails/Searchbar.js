@@ -11,9 +11,7 @@ const Searchbar = ({searching}) => {
 <input type="text" placeholder='search' onChange={searching} className='inputsearchbar' />
 
   </div>
-
-   
-    </>
+  </>
   )
 }
 

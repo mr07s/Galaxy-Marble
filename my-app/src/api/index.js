@@ -11,5 +11,5 @@ export const customerdetails =() => API.get('/duedetails/getdetails');
 export const pdetails =(productdata)=>API.post('/addproduct/pdetails',productdata);
 
 export const fetchproducts =()=>API.get('/addproduct/getpdetails');
-
+export const deleteCustomer=(customerId)=>API.delete(`/duedetails/deleteCustomer/${customerId}`)
 

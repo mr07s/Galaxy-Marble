@@ -23,7 +23,7 @@ justify-content: right;
 }
 .inputsearchbar:hover{
 
-    background-color: rgb(64, 237, 243);
+    background-color: rgb(233, 233, 233);
     color: rgb(14, 14, 14);
     /* border: 3px solid white; */
 }

@@ -1,10 +1,9 @@
-
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { pdetails } from '../../actions/product'; 
 
-
+import './Addproduct.css'
 
 const AddProduct = () => {
 
@@ -35,29 +34,9 @@ const handleaddproduct = (event)=>{
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   return (
     <div className='outerbox'>
       <div className='formholder'>
-
     <form action="" className='Productform' onSubmit={handleaddproduct}>
 <label htmlFor="productname" >
 <h6>Products Name</h6>
@@ -86,7 +65,7 @@ const handleaddproduct = (event)=>{
 
 <div  id='buttondiv' >
 
-<button className='submit' >Add Products</button>
+<button className='submit'>Add Products</button>
 
 </div>
 

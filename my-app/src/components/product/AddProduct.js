@@ -7,6 +7,7 @@ import './Addproduct.css'
 import { v4 } from 'uuid';
 import { ref,getDownloadURL, uploadBytes } from 'firebase/storage';
 import e from 'cors';
+import PhotoUploader from '../../helpers/uploder';
 
 const AddProduct = () => {
 
@@ -38,32 +39,30 @@ const productmessage = useSelector(state => state.productreducer)
 
 // })
 
-const [imageupload, setImageupload] = useState(null)
-const [imageurl, setImageurl] = useState([])
+const [imageupload, setImageupload] = useState('')
+const [imageurl, setImageurl] = useState(null)
 
 
-const uploadImage = async ()=>{ 
-  // e.preventDefault();
-  if(imageupload===null){
-    console.log("returned");
-    return;
-  }
+// const uploadImage = async ()=>{ 
+//   // e.preventDefault();
+//   if(imageupload===null){
+//     console.log("returned");
+//     return;
+//   }
 
-  const imageRef =ref(storage,`images/${imageupload.name+v4()}`)
-  await uploadBytes(imageRef,imageupload).then((snapshot)=>{
-    getDownloadURL(snapshot.ref).then((url)=>{
-      setImageurl(url);
-      console.log(imageurl);
-      // console.log(url+'hi');
-    (dispatch(pdetails({imageurl,companyname,productname,productquantity,productSellingquantity,productdate,userId},navigate)))
+//   const imageRef =ref(storage,`images/${imageupload.name+v4()}`)
+//   await uploadBytes(imageRef,imageupload).then((snapshot)=>{
+//     getDownloadURL(snapshot.ref).then((url)=>{
+//       setImageurl(url);
+//       console.log(imageurl);
+//       // console.log(url+'hi');
 
-})
+// })
 
-
-})
+// })
 
 
-};
+// };
 
 
 const clearinputs=()=>{
@@ -73,7 +72,7 @@ const clearinputs=()=>{
 
 
 const isDisabled = () =>{
-  if (imageupload&&productname && productquantity && productSellingquantity && productdate&&companyname)
+if (imageurl&&productname && productquantity && productSellingquantity && productdate&&companyname)
     setDisable(false);
   else setDisable(true);
 };
@@ -86,21 +85,20 @@ isDisabled();
 
 
 
-
 const handleaddproduct = (event)=>
 {
   event.preventDefault();
-    uploadImage();
-
+    // uploadImage();
+// console.log(imageurl+"Hi");
+(dispatch(pdetails({imageurl,companyname,productname,productquantity,productSellingquantity,productdate,userId},navigate)))
 clearinputs();
-    
-  // productreducer
 
+// productreducer
   // val=1;
 
 }
 
-  return (
+return (
     <div className='outerbox'>
       <div className='formholder'>
     <form action="" className='Productform' onSubmit={handleaddproduct}>
@@ -129,12 +127,15 @@ clearinputs();
 <input type="Date" placeholder='Type Products Selling quantity' id='enterdate'  value={productdate}     onChange={(e)=> setProductdate(e.target.value)}/>
 </label>
 
-<label htmlFor="photo">
+
+
+{/* <label htmlFor="photo">
   <h6>Upload Picture</h6>
 <input type="file" name='file' id='photo' onChange={(event)=>{setImageupload(event.target.files[0])}}/>
-</label>
+</label> */}
+<PhotoUploader imgUrl={imageurl} setImgUrl={setImageurl}/>
 
-<div  id='buttondiv' >
+<div  id='buttondiv'>
 
 <button className='submit' disabled={disable}>Add Products</button>
 

@@ -89,7 +89,7 @@ const Message =useSelector(state=>state.customerReducer);
 
     };
 
-    console.log(addFormData);
+    // console.log(addFormData);
     const newcustomers = [...customer, newcustomer];
     setcustomer(newcustomers);
 

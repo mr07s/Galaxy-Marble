@@ -12,7 +12,7 @@ res.status(200).json("saved a product data sucessfully");
 }
 catch (error)
 {
-console.log(error);
+// console.log(error);
 res.status(409).json("Coudn't post a productdetails");
 }
 };
@@ -51,7 +51,9 @@ export const deletedetails  =async(req,res)=>
     }
     catch(error)
     {
-        console.log("Customer deletion unsuccessfull due to "+error.message);
+        // console.log("Customer deletion unsuccessfull due to "+error.message);
+res.status(404).send(error);
+
     }
 }
 
@@ -70,7 +72,7 @@ try{
     return res.status(200).json({message:"yahhh!updated succesfully"})
 }
 catch(e){
-    console.log(e);
+    // console.log(e);
     return res.status(404).send(e);    
 }
 

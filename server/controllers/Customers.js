@@ -59,7 +59,8 @@ export const deleteCustomer= async(req,res)=>{
     
     }
     catch(error){
-        console.log("Customer deletion unsuccessfull due to "+error.message);
+        res.send(error);
+        // console.log("Customer deletion unsuccessfull due to "+error.message);
     }
 }
 

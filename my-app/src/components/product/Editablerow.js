@@ -25,7 +25,7 @@ const Editablerow = ({data,handleCancleclick,index}) => {
     // console.log(disable);
   }, [isDisabled, disable]);
 
-console.log(editFormData);
+// console.log(editFormData);
 const handleEditchange=(event)=>{
 event.preventDefault();
 

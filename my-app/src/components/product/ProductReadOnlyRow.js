@@ -1,8 +1,9 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { deleteproduct } from '../../actions/product';
-
+import './ProductReadonlyRow.css'
 const ProductReadOnlyRow = ({data,index,handleEditchange}) => {
+  // console.log(data.imageurl+"AVBCKDKDK");
   const dispatch=useDispatch();
 const handledelete=(e)=>{
 e.preventDefault();
@@ -10,8 +11,10 @@ dispatch(deleteproduct(data?._id));
 }
 
   return (
-    <tr key={data._id}>
+<tr key={data._id}>
+
 <td>{index+1}</td>
+ <td className='imgholder'><img  className='img' src={data.imageurl}/></td>
 <td>{data.companyname}</td>
 <td>{data.productname}</td>
 <td>{data.productquantity}</td>

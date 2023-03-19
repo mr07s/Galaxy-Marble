@@ -123,7 +123,7 @@ return (
 </label>
 
 <label htmlFor="enterdate">
-  <h6>Enter Date</h6>
+  <h6>Purchase Date</h6>
 <input type="Date" placeholder='Type Products Selling quantity' id='enterdate'  value={productdate}     onChange={(e)=> setProductdate(e.target.value)}/>
 </label>
 

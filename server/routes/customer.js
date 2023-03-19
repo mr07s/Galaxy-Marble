@@ -1,6 +1,7 @@
 import express from 'express'
 
 import {Customer,deleteCustomer,getcustomerdetails,editCustomer} from '../controllers/Customers.js'
+import auth from '../middlewares/auth.js';
 
 
 const router = express.Router();

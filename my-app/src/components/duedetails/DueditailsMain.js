@@ -327,39 +327,25 @@ localStorage.setItem('info',JSON.stringify(customer))
 </thead>
 <tbody>
 {duedetails?.data?.filter((Data)=>{
-  return searchResult(search,Data);
-  
+return searchResult(search,Data)  
 } ).filter(Data => 
   Data.userId === userId
 ).map((data,index)=>(
 <Fragment key={index}>
-  {editcustomerId === data._id?(<Editablerow editFormData={editFormData} handleEditchange={handleEditchange} handleCancleclick={handleCancleclick} index={index}/>): 
-  (<Readonlyrow data={data} handleEditclick={handleEditclick} handleDeleteclick={handleDeleteclick} index={index} />)}
+{editcustomerId === data._id?(<Editablerow editFormData={editFormData} handleEditchange={handleEditchange} handleCancleclick={handleCancleclick} index={index}/>): 
+(<Readonlyrow data={data} handleEditclick={handleEditclick} handleDeleteclick={handleDeleteclick} index={index} />)}
 </Fragment>
-
 ))
 }
-
-
-
-
 
 </tbody>
 </table>
 </form>
-
-
- <button onClick={add}  className='formaddbtn' >{editform?'Close':'Add'}</button>
- {editform &&
-<Editform />}
+<button onClick={add}  className='formaddbtn' >{editform?'Close':'Add'}</button>
+{editform &&
+<Editform/>}
 </div>
-
-
-
-
-
-    </div>
+</div>
   )
 }
-
 export default DueditailsMain

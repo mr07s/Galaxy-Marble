@@ -62,10 +62,11 @@ export const updateproduct = async(req,res)=>{
     const {id:_id} = req.params;
     // console.log(_id);
     // const {}
-const{companyname,productname,productquantity,productSellingquantity,productdate}=req.body;
+    console.log(req.imageurl);
+const{imageurl,companyname,productname,productquantity,productSellingquantity,productdate}=req.body;
 try{
     await product.findByIdAndUpdate(_id,{
-        $set:{productname:productname,companyname:companyname,productquantity:productquantity,productSellingquantity:productSellingquantity,productdate:productdate},
+        $set:{imageurl:imageurl,productname:productname,companyname:companyname,productquantity:productquantity,productSellingquantity:productSellingquantity,productdate:productdate},
        
     });
     

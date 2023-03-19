@@ -48,8 +48,6 @@ dispatch (updateproduct(data._id,editFormData));
 dispatch(fetchpdetail());
 handleCancleclick();
 
-
-
 }
 
 
@@ -63,11 +61,12 @@ handleCancleclick();
 <td>
  {index+1}
 </td>
+<td className='imgholder'><img className='img' src={data.imageurl}/></td>
 <td>
 <input type="text"  name="companyname" value={editFormData.companyname}  onChange={handleEditchange}/>
 </td>
 <td>
-    <input type="text" name="productname"  value={editFormData.productname} onChange={handleEditchange}/>
+<input type="text" name="productname"  value={editFormData.productname} onChange={handleEditchange}/>
 </td>
 <td>
 <input type="number" name="productquantity"  value={editFormData.productquantity} onChange={handleEditchange}/>

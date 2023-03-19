@@ -8,8 +8,8 @@ import CircularProgressWithLabel from './CircularProgressWithLabel'
 const styles = {
     container: {
         width: "20rem",
-        border: '1px solid red',
-        borderRadius: '2vw',
+        // border: '1px solid red',
+        borderRadius: '1.5vw',
         borderStyle: 'dashed',
         display: 'flex',
         flexDirection: 'column',

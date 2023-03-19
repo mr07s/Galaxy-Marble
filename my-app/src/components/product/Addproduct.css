@@ -1,14 +1,17 @@
 
 body{
-    background-image: url('../images/books6.jpeg');
+    background-image: url('../images/3dmarbel\ imgae-1.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover;
+    background-size: fill;
    
   }
   
-  
-  .app-container {
+  .outerbox{
+height: 100vh;
+
+  }
+  .formholder {
       display: flex;
       flex-direction: column;
       margin:3rem ;
@@ -18,41 +21,10 @@ body{
       min-width: 90vw;
       justify-content: center;
       align-items: center;
+
      
     }
-    
-    table {
-      border-collapse: collapse;
-      min-width: 70vw;
-    
-    }
-    
-    th,
-    td{
-      text-align: left;
-      padding: 1.2rem;
-      font-size: 1.5rem;
-    color: rgb(190, 255, 37);
-    }
-    
-    table td{
-      /* border: 2px solid rgb(0, 0, 0); */
-      border: 1px solid rgb(245, 240, 240);
-    
-    }
-    th {
-      /* background-color: rgb(117, 201, 250); */
-      backdrop-filter: blur(7px);
-  
-    
-    }
-    
-    td {
-      /* background-color: rgb(205, 235, 253); */
-      backdrop-filter: blur(6px);
-  color: white;
-     
-    }
+ 
     
     form {
       display: grid;
@@ -61,9 +33,24 @@ body{
      min-width: 85vw;
     max-width: 88vw;
     margin: 2rem;
+    /* font-size: 2rem; */
     box-sizing: border-box;
     }
-    
+    form input{
+
+/* background-color: black; */
+font-size: 1.7rem;
+color: rgb(10, 10, 53);
+    }
+
+form>label>h6{
+  color: black;
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+
+
+
     form td:last-child 
     {
       display: flex;
@@ -82,32 +69,30 @@ body{
       font-size: 1.2rem;
      
     }
-    .formaddbtn{
-  
+    .submit{
   width: 10rem;
   height: 3rem;
   border: none;
   border-radius:50px ;
   color: rgb(88, 202, 240);
-  background-color: rgb(33, 39, 46);
+  background-color: rgb(0, 31, 67);
   font-size: 1.5rem;
   
   
   
   }
-    .formaddbtn:hover{
+    .submit:hover{
   
-  /* color: rgb(218, 159, 9); */
+  color: rgb(218, 159, 9);
   color: white;
   background-color: rgb(33, 39, 46);
   
     }
 
-
-    label h6{
-        /* color: white; */
-color:rgb(255, 239, 93);
-
-
-
+    .submit button:disabled,
+    button[disabled]{
+      border: 1px solid #999999;
+      background-color: #cccccc;
+      color: #666666;
+      pointer-events: none;
     }

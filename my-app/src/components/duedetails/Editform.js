@@ -57,7 +57,7 @@ const Message =useSelector(state=>state.customerReducer);
   };
 
   
-  const isDisabled = () => {
+  const isDisabled = () =>{
     const { Name, undertakenby, price, purchasingdate, duedate } = addFormData;
     if (Name && undertakenby && price && purchasingdate && duedate)
       setDisable(false);
@@ -65,7 +65,6 @@ const Message =useSelector(state=>state.customerReducer);
   };
   useEffect(() => {
     isDisabled();
-
     // console.log(disable);
   }, [isDisabled, disable]);
 
@@ -126,7 +125,7 @@ const Message =useSelector(state=>state.customerReducer);
           name="Name"
           placeholder="Name"
           id="username"
-          className="textfield"
+          className="textfield textfield - 1"
           onChange={handlechange}
         />
         <input
@@ -134,7 +133,7 @@ const Message =useSelector(state=>state.customerReducer);
           name="undertakenby"
           placeholder="Undertaken by"
           id="undertakenby"
-          className="textfield"
+          className="textfield textfield - 2"
           onChange={handlechange}
         />
         <input
@@ -142,7 +141,7 @@ const Message =useSelector(state=>state.customerReducer);
           name="price"
           placeholder="Bill amount"
           id="billamount"
-          className="textfield"
+          className="textfield textfield - 3"
           onChange={handlechange}
         />
         <input
@@ -150,7 +149,7 @@ const Message =useSelector(state=>state.customerReducer);
           name="purchasingdate"
           placeholder="purchasingdate"
           id="purchasingdate"
-          className="textfield"
+          className="textfield textfield - 4"
           onChange={handlechange}
         />
         <input
@@ -158,7 +157,7 @@ const Message =useSelector(state=>state.customerReducer);
           name="duedate"
           placeholder="billpaymentdate"
           id="billpaymentdate"
-          className="textfield"
+          className="textfield textfield - 5"
           onChange={handlechange}
         />
         <button

@@ -1,27 +1,56 @@
-// import { getProductDetails } from '../../../server/controllers/product';
 import * as api from '../api'
-
-
 export const pdetails = (pdetailsdata,navigate) => async(dispatch)=>
 {
-const {data} =await api.pdetails(pdetailsdata);
+
+try {
+    const {data} =await api.pdetails(pdetailsdata);
 dispatch({ type:'P_DETAILS',payload:data});
-dispatch(fetchpdetail())
-navigate('showproduct');
+dispatch(fetchpdetail());
+navigate('/showproduct');
+
+
+} catch (error) {
+    console.log(error);
 }
+
+
+}
+
+
 export const fetchpdetail =() =>async(dispatch)=>
 {
-const {data} =await api.fetchproducts();
-dispatch({type:'FETCH_PRODUCTS',payload:data}) 
+    try {
+        const {data} =await api.fetchproducts();
+dispatch({type:'FETCH_PRODUCTS',payload:data})
+    } catch (error) {
+        console.log(error);
+    }
+
 }
-
-
-
-
-
 
 export const deleteproduct =(productId)=>async(dispatch)=>
 {
-await api.deleteproduct(productId);
-dispatch(fetchpdetail())
+    try {
+        await api.deleteproduct(productId);
+        dispatch(fetchpdetail())
+    } catch (error) {
+     console.log(error)
+    }
+
+}
+export const updateproduct =(productId,editdetail)=>async(dispatch)=>{
+
+
+try {
+    
+await api.updateproduct(productId,editdetail);
+dispatch(fetchpdetail());
+
+
+} catch (error) {
+    console.log(error);
+}
+
+
+
 }

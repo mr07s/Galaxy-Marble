@@ -4,7 +4,7 @@ const Tablehead = () => {
   return (
     <tr>
     <th>SerialNo</th>
-    <th>NMAE</th>
+    <th>NAME</th>
     <th>UNDERTAKEN-BY</th>
     <th>PRICE</th>
     <th>PURCHASE-DATE</th>

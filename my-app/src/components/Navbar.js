@@ -18,7 +18,7 @@ const Navbar = () => {
   <div className='navbarleft'>
   <ul   className='navitems'>
    
-  <li className='navlist'><Link to='/'>Home</Link></li>
+  <li className='navlist'><Link to='/'>GalaxyMarvel</Link></li>
   <li className='navlist'><Link to='/duedetails'>Duedetails</Link></li>
   <li className='navlist'><Link to='/addproduct'>AddProducts</Link></li>
   <li className='navlist'><Link to='/showproduct'>ShowProducts</Link></li>

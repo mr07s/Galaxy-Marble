@@ -10,7 +10,6 @@ import { useEffect } from 'react';
 import { getdetails } from './actions/customer';
 import { fetchpdetail } from './actions/product';
 import ShowProduct from './components/product/ShowProduct';
-
 function App() {
 
 const dispatch=useDispatch();
@@ -21,11 +20,9 @@ const userId =User?.result?._id;
 // console.log(userId)
 
 useEffect(() => {
-
   // console.log('render');
 dispatch(getdetails())
 dispatch(fetchpdetail())
-
 },[dispatch])
 
 
@@ -36,11 +33,11 @@ dispatch(fetchpdetail())
 
 <Routes>
 
-<Route path='duedetails' element={<Dueditails/>}/> 
-<Route path='Signup' element={<Signup/>}/> 
-<Route path='Login' element={<Login/>}/> 
-<Route path='addproduct' element={<AddProduct/>}></Route>
-<Route path='showproduct' element={<ShowProduct/>}></Route>
+<Route path='/duedetails' element={<Dueditails/>}/> 
+<Route path='/Signup' element={<Signup/>}/> 
+<Route path='/Login' element={<Login/>}/> 
+<Route path='/addproduct' element={<AddProduct/>}></Route>
+<Route path='/showproduct' element={<ShowProduct/>}></Route>
 </Routes>
 
     </>

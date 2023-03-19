@@ -22,13 +22,22 @@ font-weight: 900;
 font-size: 30px;
 
 }
+.Editform button:disabled,
+button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+  pointer-events: none;
+}
 
 .Editform button:hover{
+border: 1px solid black;
+background-color: rgb(158, 67, 28);
 
-    background-color:  rgb(138, 51, 14);
-    
+color:rgb(186, 182, 182);
+font-weight: bold;
 }
 
 h2{
-    color: rgba(208, 222, 11, 0.849);
+    color: rgba(0, 0, 0, 0.849);
 }

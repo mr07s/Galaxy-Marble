@@ -14,9 +14,6 @@ const Readonlyrow = ({data,handleEditclick,handleDeleteclick,index}) => {
 <button type='button' onClick={(event)=>handleEditclick(event,data)}>Edit</button>
 <button type='button' onClick={()=>handleDeleteclick(data._id)}>Delete</button>
 </td>
-
-
-
 </tr>
   )
 }

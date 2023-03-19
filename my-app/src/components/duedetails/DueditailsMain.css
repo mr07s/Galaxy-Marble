@@ -1,6 +1,6 @@
 
 body{
-  background-image: url('../images/books6.jpeg');
+  /* background-image: url('../images/istockphoto-636013786-1024x1024.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
  background-size: cover;
@@ -18,7 +18,7 @@ body{
     min-width: 90vw;
     justify-content: center;
     align-items: center;
-   
+   /* background-color: black; */
   }
   
   table {
@@ -32,12 +32,13 @@ body{
     text-align: left;
     padding: 1.2rem;
     font-size: 1.5rem;
-  color: rgb(190, 255, 37);
+    color: rgb(5, 13, 82) !important;
+    font-weight: bold;
   }
   
   table td{
     /* border: 2px solid rgb(0, 0, 0); */
-    border: 1px solid rgb(245, 240, 240);
+    border: 1px solid rgb(45, 45, 45) !important;
   
   }
   th {
@@ -49,8 +50,9 @@ body{
   
   td {
     /* background-color: rgb(205, 235, 253); */
-    backdrop-filter: blur(6px);
-color: white;
+    backdrop-filter: blur(7px);
+color: rgb(10, 8, 8) !important;
+font-weight: 600;
    
   }
   

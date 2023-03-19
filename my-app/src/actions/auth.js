@@ -15,11 +15,6 @@ navigate('/');
 
 }
 
-
-
-
-
-
 }
 export const login =(authdata,navigate) =>async(dispatch)=>{
 
@@ -27,6 +22,7 @@ try {
     const {data} =await api.login(authdata);
     dispatch({type:'AUTH',data});
     navigate('/');
+
 
 
 } catch (error) {

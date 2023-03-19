@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { pdetails } from '../../actions/product'; 
@@ -11,21 +11,57 @@ const User = JSON.parse(localStorage.getItem('Profile'));
 // console.log(User)
 const userId =User?.result?._id;
 
+const [companyname, setcompanyname] = useState('')
 const [productname, setProductname] = useState('')
-const [productquantity, setProductquproductquantity] = useState('')
+const [productquantity, setProductquantity] = useState('')
 const [productSellingquantity, setProductSellingquantity] = useState('')
 const [productdate, setProductdate] = useState('')
-
+const [disable, setDisable] = useState(true)
 const navigate = useNavigate();
 const dispatch = useDispatch();
 
 // console.log(productname,productquantity,productSellingquantity,productdate)
 //  val = 0;
+
 const productmessage = useSelector(state => state.productreducer)
+
+// const [productdata,setProductdata] =useState({
+
+//   productname:productname,
+//   productquantity:productquantity,
+//   productSellingquantity:productSellingquantity,
+//   productdate:productdate,
+
+
+// })
+
+
+
+const clearinputs=()=>{
+  setProductname('');
+}
+
+
+
+const isDisabled = () =>{
+  if (productname && productquantity && productSellingquantity && productdate&&companyname)
+    setDisable(false);
+  else setDisable(true);
+};
+
+useEffect(() => {
+isDisabled();
+  // console.log(disable);
+}, [isDisabled, disable]);
+
+
+
+
 
 const handleaddproduct = (event)=>{
   event.preventDefault();
-  (dispatch(pdetails({productname,productquantity,productSellingquantity,productdate,userId},navigate)))
+  (dispatch(pdetails({companyname,productname,productquantity,productSellingquantity,productdate,userId},navigate)))
+  clearinputs();
 
 
   // productreducer
@@ -40,22 +76,27 @@ const handleaddproduct = (event)=>{
     <form action="" className='Productform' onSubmit={handleaddproduct}>
 <label htmlFor="productname" >
 <h6>Products Name</h6>
-<input type="text" placeholder='Type Products Name' id='productname' onChange={(e)=> setProductname(e.target.value)}/>
+<input type="text" placeholder='Type Products Name' id='productname' value={productname}  onChange={(e)=> setProductname(e.target.value)}/>
+</label>
+
+<label htmlFor="companyname" >
+<h6>Company Name</h6>
+<input type="text" placeholder='Type Companies Name' id='companyname' value={companyname}  onChange={(e)=> setcompanyname(e.target.value)}/>
 </label>
       
 <label htmlFor="productsquantity">
 <h6>Products Quantity</h6>
-<input type="text" placeholder='Type Products Quantity' id='productsquantity' onChange={(e)=> setProductquproductquantity(e.target.value)}/>
+<input type="number" placeholder='Type Products Quantity' id='productsquantity' value={productquantity}  onChange={(e)=> setProductquantity(e.target.value)}/>
 </label>
 
 <label htmlFor="productSellingquantity">
   <h6>Products Selling quantity</h6>
-<input type="text" placeholder='Type Products Selling quantity' id='productSellingquantity'   onChange={(e)=> setProductSellingquantity(e.target.value)}/>
+<input type="number" placeholder='Type Products Selling quantity' id='productSellingquantity' value={productSellingquantity}  onChange={(e)=> setProductSellingquantity(e.target.value)}/>
 </label>
 
 <label htmlFor="enterdate">
   <h6>Enter Date</h6>
-<input type="Date" placeholder='Type Products Selling quantity' id='enterdate'   onChange={(e)=> setProductdate(e.target.value)}/>
+<input type="Date" placeholder='Type Products Selling quantity' id='enterdate'  value={productdate}     onChange={(e)=> setProductdate(e.target.value)}/>
 </label>
 
 <label htmlFor="photo">
@@ -65,7 +106,7 @@ const handleaddproduct = (event)=>{
 
 <div  id='buttondiv' >
 
-<button className='submit'>Add Products</button>
+<button className='submit' disabled={disable}>Add Products</button>
 
 </div>
 

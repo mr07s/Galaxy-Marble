@@ -9,6 +9,9 @@ background-color: rgb(57, 56, 56);
 display: flex;
 /* position: fixed; */
 width: 100vw;
+z-index: 100;
+position: fixed;
+top: 0;
 }
 
 

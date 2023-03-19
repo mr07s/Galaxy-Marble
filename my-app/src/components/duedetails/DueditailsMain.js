@@ -12,13 +12,14 @@ import Tablehead from './Tablehead';
 import Readonlyrow from './Readonlyrow';
 import Editform from './Editform';
 import Editablerow from './Editablerow';
-import { customerdetails, deletecustomerdetails } from '../../actions/customer';
+import { customerdetails, deletecustomerdetails, getdetails, updatecustomer } from '../../actions/customer';
 
 import { useNavigate, useParams } from 'react-router-dom'
 import { useDispatch,useSelector } from 'react-redux'
 // import { initializeUseSelector } from 'react-redux/es/hooks/useSelector';
 // import { resourceLimits } from 'worker_threads';
 // to get data from local storage 
+
 
 
 
@@ -192,8 +193,9 @@ const fieldvalue=event.target.value;
 const newFormData ={...editFormData};
 newFormData[fieldName]=fieldvalue;
 seteditFormData(newFormData);
-setaddFormData(null);
-
+// setaddFormData(null);
+// console.log(event.target._id);
+// console.log(editFormData)
 }
 
 
@@ -232,20 +234,22 @@ const handleeditsubmit=(event)=>{
 event.preventDefault();
 
 const editeddata={
-id:editcustomerId,
+// id:editcustomerId,
 Name:editFormData.Name,
 undertakenby:editFormData.undertakenby,
 price:editFormData.price,
 purchasingdate:editFormData.purchasingdate,
 duedate:editFormData.duedate
 }
+// console.log(editeddata);
 
-
-
-const newcustomers =[...customer];
-const index=customer.findIndex((customer)=>customer.id===editcustomerId );
-newcustomers[index]=editeddata;
-setcustomer(newcustomers);
+// console.log(editcustomerId);
+dispatch(updatecustomer(editcustomerId,editeddata))
+// const newcustomers =[...customer];
+// const index=customer.findIndex((customer)=>customer._id===editcustomerId );
+// newcustomers[index]=editeddata;
+// setcustomer(newcustomers);
+dispatch(getdetails());
 seteditcustomerId(null); 
 
 
@@ -259,7 +263,8 @@ seteditcustomerId(null);
 //It gives the data of which we want to edit to  editedformdata varible
 const handleEditclick=(event,customer)=>{
 event.preventDefault();
-seteditcustomerId(customer.id)
+// console.log(customer);
+seteditcustomerId(customer._id)
 
 const formvalues ={
 
@@ -271,7 +276,7 @@ const formvalues ={
 
 }
 seteditFormData(formvalues)
-
+// console.log(editFormData);
 }
 
 const handleCancleclick=()=>{
@@ -302,9 +307,7 @@ const handleDeleteclick=(customerId)=>{
 
 //Add data to local storage
 useEffect(() => {
-  
 localStorage.setItem('info',JSON.stringify(customer))
-
 }, [customer])
 
 
@@ -330,7 +333,7 @@ localStorage.setItem('info',JSON.stringify(customer))
   Data.userId === userId
 ).map((data,index)=>(
 <Fragment key={index}>
-  {editcustomerId === data.id?(<Editablerow editFormData={editFormData} handleEditchange={handleEditchange} handleCancleclick={handleCancleclick} index={index}/>): 
+  {editcustomerId === data._id?(<Editablerow editFormData={editFormData} handleEditchange={handleEditchange} handleCancleclick={handleCancleclick} index={index}/>): 
   (<Readonlyrow data={data} handleEditclick={handleEditclick} handleDeleteclick={handleDeleteclick} index={index} />)}
 </Fragment>
 

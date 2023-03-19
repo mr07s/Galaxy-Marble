@@ -4,6 +4,7 @@ const Tablehead = () => {
   return (
     <tr>
     <th>SerialNo</th>
+    <th>CompaneName</th>
     <th>ProductName</th>
     <th>Products-Quantity</th>
     <th>Product Selling Quantity</th>

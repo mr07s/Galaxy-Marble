@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { pdetails } from '../../actions/product'; 
-
+import {storage} from '../../firebase.config/firebase'
 import './Addproduct.css'
+import { v4 } from 'uuid';
+import { ref,getDownloadURL, uploadBytes } from 'firebase/storage';
+import e from 'cors';
 
 const AddProduct = () => {
 
@@ -35,6 +38,32 @@ const productmessage = useSelector(state => state.productreducer)
 
 // })
 
+const [imageupload, setImageupload] = useState(null)
+const [imageurl, setImageurl] = useState([])
+
+
+const uploadImage = async ()=>{ 
+  // e.preventDefault();
+  if(imageupload===null){
+    console.log("returned");
+    return;
+  }
+
+  const imageRef =ref(storage,`images/${imageupload.name+v4()}`)
+  await uploadBytes(imageRef,imageupload).then((snapshot)=>{
+    getDownloadURL(snapshot.ref).then((url)=>{
+      setImageurl(url);
+      console.log(imageurl);
+      // console.log(url+'hi');
+    (dispatch(pdetails({imageurl,companyname,productname,productquantity,productSellingquantity,productdate,userId},navigate)))
+
+})
+
+
+})
+
+
+};
 
 
 const clearinputs=()=>{
@@ -44,12 +73,12 @@ const clearinputs=()=>{
 
 
 const isDisabled = () =>{
-  if (productname && productquantity && productSellingquantity && productdate&&companyname)
+  if (imageupload&&productname && productquantity && productSellingquantity && productdate&&companyname)
     setDisable(false);
   else setDisable(true);
 };
 
-useEffect(() => {
+useEffect(() =>{
 isDisabled();
   // console.log(disable);
 }, [isDisabled, disable]);
@@ -58,14 +87,15 @@ isDisabled();
 
 
 
-const handleaddproduct = (event)=>{
+const handleaddproduct = (event)=>
+{
   event.preventDefault();
-  (dispatch(pdetails({companyname,productname,productquantity,productSellingquantity,productdate,userId},navigate)))
-  clearinputs();
+    uploadImage();
 
-
+clearinputs();
+    
   // productreducer
- 
+
   // val=1;
 
 }
@@ -101,7 +131,7 @@ const handleaddproduct = (event)=>{
 
 <label htmlFor="photo">
   <h6>Upload Picture</h6>
-<input type="file" name='file' id='photo'/>
+<input type="file" name='file' id='photo' onChange={(event)=>{setImageupload(event.target.files[0])}}/>
 </label>
 
 <div  id='buttondiv' >

@@ -62,7 +62,34 @@ export const deleteCustomer= async(req,res)=>{
         console.log("Customer deletion unsuccessfull due to "+error.message);
     }
 }
-    
+
+
+
+
+
+
+
+    export const editCustomer =async(req,res)=>{
+        const {id:_id} = req.params;
+        const{Name,undertakenby, price,purchasingdate,duedate}=req.body;
+        try{
+            await customer.findByIdAndUpdate(_id,{
+                $set:{Name:Name,undertakenby:undertakenby,undertakenby:undertakenby,price:price,purchasingdate:purchasingdate,duedate:duedate},
+                // $set:{undertakenby:undertakenby},
+                // $set:{price:price},
+                // $set:{purchasingdate:purchasingdate},
+                // $set:{duedate:duedate},
+            });
+            
+            return res.status(200).json({message:"yahhh!updated succesfully"})
+        }
+        catch(e){
+            console.log(e);
+            return res.status(404).send(e);    
+        }
+
+
+    }
     
     
 

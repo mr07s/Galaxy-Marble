@@ -18,13 +18,13 @@ res.send("This is a customder-counter api ");
 })
 
 app.use('/user',userRoutes);
-app.use('/duedetails',auth,customerRoutes);
-app.use('/addproduct',auth,productroutes);
+app.use('/duedetails',customerRoutes);
+app.use('/addproduct',productroutes);
 
 
 const PORT = process.env.PORT || 5000
 
-const connection_Url =process.env.CONNECTION_URL
+const connection_Url ="mongodb+srv://soumya:UbsQsxjlFVkIc4ju@cluster0.grb5anm.mongodb.net/?retryWrites=true&w=majority"
 
 mongoose.connect(connection_Url,{useNewUrlParser:true,useUnifiedTopology:true})
 .then(()=>app.listen(PORT,()=>{console.log(`server is running on port ${PORT}`)}))

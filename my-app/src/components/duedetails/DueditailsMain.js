@@ -306,9 +306,9 @@ const handleDeleteclick=(customerId)=>{
 
 
 //Add data to local storage
-useEffect(() => {
-localStorage.setItem('info',JSON.stringify(customer))
-}, [customer])
+// useEffect(() => {
+// localStorage.setItem('info',JSON.stringify(customer))
+// }, [customer])
 
 
 

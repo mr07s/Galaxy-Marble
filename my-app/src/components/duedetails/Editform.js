@@ -6,32 +6,28 @@ import { customerdetails } from "../../actions/customer";
 // import Alert from "../Alert";
 import "./Editform.css";
 
-const getLocalitems = () => {
-  let list = localStorage.getItem("info");
-  if (list) {
-    return JSON.parse(localStorage.getItem("info"));
-  } else {
-    return [];
-  }
-};
-
-
+// const getLocalitems = () => {
+//   let list = localStorage.getItem("info");
+//   if (list) {
+//     return JSON.parse(localStorage.getItem("info"));
+//   } else {
+//     return [];
+//   }
+// };
 
 const Editform = () => {
-  
-  
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [disable, setDisable] = useState(true);
-  const [customer, setcustomer] = useState(getLocalitems());
-   var inputs = document.getElementsByClassName("textfield");
-   const User = JSON.parse(localStorage.getItem("Profile"));
+  const [customer, setcustomer] = useState("");
+  var inputs = document.getElementsByClassName("textfield");
+  const User = JSON.parse(localStorage.getItem("Profile"));
 
-// const [mesage, setMesage] = useState('')
-const Message =useSelector(state=>state.customerReducer);
-
+  const Message = useSelector((state) => state.customerReducer);
 
   const userId = User?.result?._id;
+// const userId=user.toString();
+console.log(userId)
   var newcustomer;
   const [addFormData, setaddFormData] = useState({
     Name: "",
@@ -39,10 +35,8 @@ const Message =useSelector(state=>state.customerReducer);
     price: "",
     purchasingdate: "",
     duedate: "",
-    userId: userId,
+    userId: "",
   });
-
-
 
   const handleclear = (event) => {
     inputs[0].value = "";
@@ -51,13 +45,11 @@ const Message =useSelector(state=>state.customerReducer);
     inputs[3].value = "";
     inputs[4].value = "";
 
-   setaddFormData('');
-
-
+    setaddFormData("");
+    setcustomer("");
   };
 
-  
-  const isDisabled = () =>{
+  const isDisabled = () => {
     const { Name, undertakenby, price, purchasingdate, duedate } = addFormData;
     if (Name && undertakenby && price && purchasingdate && duedate)
       setDisable(false);
@@ -65,7 +57,6 @@ const Message =useSelector(state=>state.customerReducer);
   };
   useEffect(() => {
     isDisabled();
-    // console.log(disable);
   }, [isDisabled, disable]);
 
   const handlechange = (event) => {
@@ -74,51 +65,39 @@ const Message =useSelector(state=>state.customerReducer);
     const fieldvalue = event.target.value;
     const newFormData = { ...addFormData };
     newFormData[fieldName] = fieldvalue;
+    newFormData["userId"]=userId;
     setaddFormData(newFormData);
   };
+
   const handlesubmit = (event) => {
     event.preventDefault();
 
-    newcustomer = {
+    const newcustomer = {
       // id: nanoid(),
       Name: addFormData.Name,
       undertakenby: addFormData.undertakenby,
       price: addFormData.price,
       purchasingdate: addFormData.purchasingdate,
       duedate: addFormData.duedate,
-
+      // userId: userId,
     };
 
-    // console.log(addFormData);
+    console.log(newcustomer);
+
     const newcustomers = [...customer, newcustomer];
     setcustomer(newcustomers);
-
-    dispatch(customerdetails(addFormData, navigate));
-    // alert(customerdetails(addFormData,
-      // navigate))
+    console.log("this is customers");
+console.log(customer);
+    console.log("This is add form");
+console.log(addFormData);
+    dispatch(customerdetails(addFormData,navigate));
     handleclear();
-
-
   };
 
-  //   const [disable, setdisable] = useState('true')
-  //   {
-  // if(addFormData.Name ===''||addFormData.undertakenby ===''||addFormData.price===''||addFormData.price===''||addFormData.duedate===''){
-  //   setdisable(false);
-
-  // }
-  //   }
-
-  // console.log('hii');
-  // console.log(addFormData);
-  // Object.values(addFormData).forEach(key => {handlecheck()});
-  // console.log(addFormData.has('Name'));
-
-  // console.log(check);
   return (
     <>
       <h2>Add new customer</h2>
-      <form className="Editform" id="myForm">
+      <form className="Editform" id="myForm" onSubmit={handlesubmit}>
         <input
           required
           type="text"

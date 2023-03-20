@@ -10,6 +10,7 @@ import { useEffect } from 'react';
 import { getdetails } from './actions/customer';
 import { fetchpdetail } from './actions/product';
 import ShowProduct from './components/product/ShowProduct';
+import Home from './components/Home';
 function App() {
 
 const dispatch=useDispatch();
@@ -33,6 +34,7 @@ dispatch(fetchpdetail())
 
 <Routes>
 
+<Route path='/' element={<Home/>}/> 
 <Route path='/duedetails' element={<Dueditails/>}/> 
 <Route path='/Signup' element={<Signup/>}/> 
 <Route path='/Login' element={<Login/>}/> 

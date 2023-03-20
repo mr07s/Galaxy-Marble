@@ -16,6 +16,8 @@ export const login =(authdata)=> API.post('/user/login',authdata);
 export const signup =(authdata)=>API.post('/user/signup',authdata);
 
 export const customer =(customerdata) => API.post('/duedetails/customer',customerdata);
+
+
 export const customerdetails =() => API.get('/duedetails/getdetails');
 export const deleteCustomer=(customerId)=>API.delete(`/duedetails/deleteCustomer/${customerId}`)
 export const editcustomer =(customerId,editcustomerdata)=>API.patch(`/duedetails/editCustomer/${customerId}`,editcustomerdata)

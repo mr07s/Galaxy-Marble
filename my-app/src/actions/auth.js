@@ -6,6 +6,7 @@ try {
     
 const {data}= await api.signup(authdata);
 dispatch({type:'AUTH',data});
+alert("sign in sucessfull");
 navigate('/');
 
 
@@ -21,6 +22,7 @@ export const login =(authdata,navigate) =>async(dispatch)=>{
 try {
     const {data} =await api.login(authdata);
     dispatch({type:'AUTH',data});
+    alert("Login Sucessfulll");
     navigate('/');
 
 

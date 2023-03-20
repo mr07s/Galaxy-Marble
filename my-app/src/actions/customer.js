@@ -2,16 +2,19 @@ import * as api from "../api";
 
 export const customerdetails = (customerdata, navigate) => async (dispatch) => {
   try{
+    console.log("Hii customerdetails");
     const { data } = await api.customer(customerdata);
+    console.log("Hii customerdetails23");
+
     dispatch({ type: "CUSTOMER_DETAILS", payload: data });
     dispatch(getdetails());
-    // console.log(data,"Alert message");
-    alert(data);
+    console.log(data,"Alert message");
+    // alert(data);
     // return data;
   }
   catch (error){
     console.log(error);
-    return error;
+   
   }
 };
 

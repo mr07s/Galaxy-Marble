@@ -41,3 +41,7 @@ font-weight: bold;
 h2{
     color: rgba(0, 0, 0, 0.849);
 }
+.Editform>label>h5{
+font-weight: bold;
+color: rgb(9, 7, 36);
+}

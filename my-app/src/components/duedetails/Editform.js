@@ -98,6 +98,8 @@ console.log(addFormData);
     <>
       <h2>Add new customer</h2>
       <form className="Editform" id="myForm" onSubmit={handlesubmit}>
+       <label htmlFor="username">
+       <h5>Name</h5>
         <input
           required
           type="text"
@@ -107,6 +109,9 @@ console.log(addFormData);
           className="textfield textfield - 1"
           onChange={handlechange}
         />
+      </label>
+      <label htmlFor="undertakenby">
+      <h5>UnderTaken-By</h5>
         <input
           type="text"
           name="undertakenby"
@@ -115,6 +120,10 @@ console.log(addFormData);
           className="textfield textfield - 2"
           onChange={handlechange}
         />
+        </label>
+
+        <label htmlFor="billamount">
+        <h5>Billamount</h5>
         <input
           type="number"
           name="price"
@@ -123,6 +132,10 @@ console.log(addFormData);
           className="textfield textfield - 3"
           onChange={handlechange}
         />
+
+        </label>
+        <label htmlFor="purchasingdate">
+        <h5>PURCHASE-DATE</h5>
         <input
           type="date"
           name="purchasingdate"
@@ -131,6 +144,9 @@ console.log(addFormData);
           className="textfield textfield - 4"
           onChange={handlechange}
         />
+        </label>
+        <label htmlFor="billpaymentdate">
+        <h5>PAYMENT-DATE</h5>
         <input
           type="date"
           name="duedate"
@@ -139,6 +155,7 @@ console.log(addFormData);
           className="textfield textfield - 5"
           onChange={handlechange}
         />
+        </label>
         <button
           id="btn"
           type="submit"

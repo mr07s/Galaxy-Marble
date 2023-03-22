@@ -6,9 +6,13 @@ import './ProductReadonlyRow.css'
 const ProductReadOnlyRow = ({data,index,handleEditchange})=>{
   // console.log(data.imageurl+"AVBCKDKDK");
   const dispatch=useDispatch();
-const handledelete=(e)=>{
+
+const handledelete=(e)=>
+{
+
 e.preventDefault();
 dispatch(deleteproduct(data?._id));
+
 }
 
 const [editformdata, setEditformdata] = useState(data);
@@ -58,15 +62,14 @@ return (
 <td className='imgholder'>
  <img   className='img' src={data.imageurl} /></td>
 
- {/* {
- img?(<td className='imgholder'>
- <img   className='img' src={data.imageurl} /><button onClick={handleeditphoto} >Edit</button></td>):
+ {/*{
+img?(<td className='imgholder'>
+<img   className='img' src={data.imageurl} /><button onClick={handleeditphoto} >Edit</button></td>):
  <Fragment>
- <PhotoUploader imgUrl={imgurl} setImgUrl={setImgurl}/>
+<PhotoUploader imgUrl={imgurl}  setImgUrl={setImgurl}/>
 <button onClick={handlesubmit} >save</button>
-
 </Fragment>
-} */}
+}*/}
 <td>{data.companyname}</td>
 <td>{data.productname}</td>
 <td>{data.productquantity}</td>

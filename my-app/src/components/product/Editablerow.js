@@ -51,11 +51,6 @@ handleCancleclick();
 }
 
 
-
-
-
-
-
   return (
     <tr key={data._id}>
 <td>

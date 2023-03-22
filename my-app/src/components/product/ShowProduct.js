@@ -8,7 +8,8 @@ import Searchbar from '../duedetails/Searchbar';
 
 const ShowProduct = () => {
   
-
+const User =JSON.parse(localStorage.getItem('Profile'));
+const userId=User?.result?._id;
 
   const [search,setSearch]=useState('');
   const searching=(e)=>{
@@ -88,7 +89,9 @@ const searchResult =(search,data)=>{
 getpdetails?.data?.filter((Data)=>{
   return searchResult(search,Data);
   
-} ).map((data,index)=>(
+} ).filter(Data => 
+  Data.userId === userId
+).map((data,index)=>(
 <Fragment key={index}>
 {productId === data._id?(<Editablerow data={data} index={index} handleCancleclick={handleCancleclick}/>): 
 <ProductReadOnlyRow data={data} index={index} handleEditchange={handleEditchange} />

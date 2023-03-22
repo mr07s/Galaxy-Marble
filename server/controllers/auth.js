@@ -33,13 +33,17 @@ return res.status(404).json({message:"User doesnot exists "});
 }
 const isPasswordCrt=await bcrypt.compare(password,existinguser.password)
 if(!isPasswordCrt){
+    console.log("Errorr2");
 res.status(400).json({message:"Invalid credentials"});
 }
-const token =jwt.sign({email:existinguser.email,id:existinguser._id},JWT_SECRET,{expiresIn:'1h'})
+console.log("Password checked")
+const token =jwt.sign({email:existinguser.email,id:existinguser._id},process.env.JWT_SECRET,{expiresIn:'1h'})
 res.status(200).json({result:existinguser,token});
     }
     catch(error){
+        console.log("Error3")
         res.status(500).json("Something went wrong...");
     }
 }
+
 

@@ -14,7 +14,7 @@ next()
 
 } catch (error) {
 
-    console.log("hiiii");
+    console.log(error);
     
 }
 

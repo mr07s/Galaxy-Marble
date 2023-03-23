@@ -1,9 +1,14 @@
 
 import React, { useState } from 'react'
 import './Signup.css'
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {useNavigate} from 'react-router-dom';
 import {signup} from '../../actions/auth'
+import Errormessage from '../Alerts/Errormessage';
+
+import HashLoader from "react-spinners/HashLoader";
+
+
 
 
 const Signup = () => {
@@ -13,6 +18,24 @@ const navigate = useNavigate();
 const [name, setName] = useState('');
 const [password, setPassword] = useState('');
 const [email, setEmail] = useState('')
+
+
+
+
+
+const userstate  = useSelector(state=>state.authReducer);
+console.log(userstate);
+const {loading,data,error}=userstate
+
+
+
+
+
+
+
+
+
+
 
 // console.log({name,email,password});
 const handelSubmit =(e)=>{
@@ -24,12 +47,32 @@ if(!name||!email||!password){
 }
 dispatch(signup({name,email,password},navigate))
 
+console.log("Hii2");
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   return (
     <div className='outerbox'>
       <div className='formholder'>
+{loading&& <h1>Loading <HashLoader color="#36d7b7" /></h1>}
+{error && <Errormessage data={data}/>}
+
+
+
 
     <form action=""  onSubmit={handelSubmit} className='authform'>
 <label htmlFor="name" >

@@ -1,26 +1,36 @@
 import React from 'react'
 import { useState } from 'react'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {login} from '../../actions/auth'
 import { useNavigate } from 'react-router-dom';
-
-
+import Errormessage from '../Alerts/Errormessage'
+import HashLoader from "react-spinners/HashLoader";
+import Sucessmessages from '../Alerts/Sucessmessages';
 
 
 
 const Login = () => {
+
+
+
 const [email,setEmail] =useState('');
 const [password,setPassword] =useState('');
 // console.log(name);
 const dispatch=useDispatch()
 const navigate = useNavigate();
 
+const userstate  = useSelector(state=>state.authReducer);
+console.log(userstate);
+
+const {loading,data,error,user}=userstate
+
+
 const handlesubmit =(e)=>{
-
-
-
+  
+  
+  
   e.preventDefault();
-dispatch(login({email,password},navigate));
+  dispatch(login({email,password},navigate));
 
 
 
@@ -30,8 +40,18 @@ dispatch(login({email,password},navigate));
 
 
   return (
+    <>
     <div className='outerbox'>
     <div className='formholder'>
+   {/* {user && <Sucessmessages data={"Logged in sucessfully"}/>}
+{error && <Errormessage data={data}/>}
+{loading&& <h4>Loading... <HashLoader color="#36d7b7"  display="flex" margin-left="20px"/></h4>}
+   */}
+   {(user && <Sucessmessages data={"Logged in sucessfully"}/>)||
+(error && <Errormessage data={data}/>)||
+(loading&& <h4>Loading... <HashLoader color="#36d7b7"  display="flex" margin-left="20px"/></h4>)}
+  
+
 
   <form action="" className='authform' >
 <label htmlFor="email" >
@@ -63,6 +83,7 @@ dispatch(login({email,password},navigate));
   
   
   </div>
+  </>
   )
 }
 

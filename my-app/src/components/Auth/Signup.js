@@ -67,8 +67,11 @@ console.log("Hii2");
 
   return (
     <div className='outerbox'>
+      {
+        loading?<h1>Loading <HashLoader color="#36d7b7" /></h1>:
+
       <div className='formholder'>
-{loading&& <h1>Loading <HashLoader color="#36d7b7" /></h1>}
+
 {error && <Errormessage data={data}/>}
 
 
@@ -100,6 +103,7 @@ console.log("Hii2");
     </form>
     
       </div>
+      }
     
     
     

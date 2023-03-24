@@ -23,7 +23,7 @@ const userstate  = useSelector(state=>state.authReducer);
 console.log(userstate);
 
 const {loading,data,error,user}=userstate
-
+console.log(data);
 
 const handlesubmit =(e)=>{
   
@@ -48,17 +48,18 @@ const handlesubmit =(e)=>{
 {loading&& <h4>Loading... <HashLoader color="#36d7b7"  display="flex" margin-left="20px"/></h4>}
    */}
    {(user && <Sucessmessages data={"Logged in sucessfully"}/>)||
-(error && <Errormessage data={data}/>)||
-(loading&& <h4>Loading... <HashLoader color="#36d7b7"  display="flex" margin-left="20px"/></h4>)}
-  
+(error && <Errormessage data={data}/>)
+// (loading&& <h4>Loading... <HashLoader color="#36d7b7"  display="flex" margin-left="20px"/></h4>)
+}
 
 
+{
+ loading?(<h4>Loading... <HashLoader color="black"  display="flex" margin-left="20px"/></h4>):
   <form action="" className='authform' >
 <label htmlFor="email" >
 <h6>Email</h6>
 <input type="Email" placeholder='Type your email' id='email' onChange={(e)=>setEmail(e.target.value)} />
 </label>
-
 
 <label htmlFor="password">
 <h6>Password</h6>
@@ -73,7 +74,7 @@ const handlesubmit =(e)=>{
 </div>
 
   </form>
-  
+}
     </div>
   
   

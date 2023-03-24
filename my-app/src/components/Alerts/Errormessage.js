@@ -19,7 +19,7 @@ export default function Errormessage({data}) {
   return (
     <Stack sx={{ width: '100%',display:'flex',marginRight:'auto' }} spacing={2}>
      <Alert variant="filled" severity="error">
-     {data}
+     {data?data:"Check Your Internet"}
       </Alert>
     </Stack>
   );

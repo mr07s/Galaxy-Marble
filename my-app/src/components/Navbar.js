@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { useDispatch } from 'react-redux';
 import {Link} from 'react-router-dom'
 import { useNavigate } from 'react-router-dom';
@@ -43,9 +43,11 @@ const Navbar = () => {
   {
    user?( 
     <button className='navlist authbutton' onClick={Logout}><Link to='/login'>LogOut</Link></button>):
+  <Fragment>
   <button className='navlist authbutton'><Link to='/login'>LogIn</Link></button>
-  }
-  <button className='navlist authbutton'><Link to='/signup'>SignUp</Link></button>
+<button className='navlist authbutton'><Link to='/signup'>SignUp</Link></button>
+</Fragment>
+}
  
 </ul>
 </div>

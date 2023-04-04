@@ -3,8 +3,9 @@ export const pdetails = (pdetailsdata, navigate) => async (dispatch) => {
   try {
     const { data } = await api.pdetails(pdetailsdata);
     dispatch({ type: "P_DETAILS", payload: data });
+    alert("Product Sucessfully added");
     dispatch(fetchpdetail());
-    navigate("/showproduct");
+    // navigate("/showproduct");
   } catch (error) {
     console.log(error);
   }

@@ -1,6 +1,6 @@
 
 body{
-    background-image: url('../images/3dmarbel imgae-1.jpg') !important;
+    /* background-image: url('../images/3dmarbel imgae-1.jpg') !important; */
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: fill;
@@ -17,30 +17,48 @@ height: 100vh;
       margin:3rem ;
       gap: 1.5rem;
       padding: 1rem;
-      max-width: 95vw;
-      min-width: 90vw;
+      max-width: 30vw;
+      min-width: 25vw;
       justify-content: center;
       align-items: center;
-
+box-shadow: none;
      
     }
- 
+ .Productform{
+
+min-width: 20vw;
+/* border: 1px solid black; */
+/* min-height: 50vh; */
+/* max-height: 55vh; */
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+ }
     
     form {
       display: grid;
       gap: 1.2rem;
       justify-content: center;
-     min-width: 85vw;
-    max-width: 88vw;
+     /* min-width: 85vw;
+    max-width: 88vw; */
     margin: 2rem;
     /* font-size: 2rem; */
     box-sizing: border-box;
+     /* font-family: 'Edu NSW ACT Foundation', cursive; */
+    /* font-family: 'Pacifico', cursive; */
+    /* font-family: 'Abel', sans-serif; */
+    font-family: 'Roboto Slab', serif;
     }
     form input{
 
 /* background-color: black; */
 font-size: 1.7rem;
 color: rgb(10, 10, 53);
+/* width: 75%; */
+/* display: flex;
+justify-content: center; */
     }
 
 form>label>h6{
@@ -60,14 +78,14 @@ form>label>h6{
     
      
     }
-    form td:last-child button{
+    form td:last-child button
+    {
       height: 3rem;
-    
     }
     
-    form  {
-      font-size: 1.2rem;
-     
+    form
+    {
+      font-size: 1.2rem; 
     }
     .submit{
   width: 10rem;

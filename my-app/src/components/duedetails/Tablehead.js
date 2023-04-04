@@ -9,6 +9,7 @@ const Tablehead = () => {
     <th>PRICE</th>
     <th>PURCHASE-DATE</th>
     <th>PAYMENT-DATE</th>
+    <th>PAID-AMOUNT</th>
     <th>Actions</th>
     
     </tr>

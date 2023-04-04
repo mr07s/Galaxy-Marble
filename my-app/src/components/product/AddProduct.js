@@ -67,12 +67,17 @@ const AddProduct = () => {
 
   const clearinputs = () => {
     setProductname('');
+    setcompanyname('');
+    setProductquantity('');
+    setProductSellingquantity('');
+    setProductdate('');
+    setImageurl(null)
   }
 
 
 
   const isDisabled = () => {
-    if (imageurl && productname && productquantity && productSellingquantity && productdate && companyname)
+    if (imageurl && productname && productquantity  && productdate && companyname)
       setDisable(false);
     else setDisable(true);
   };

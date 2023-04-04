@@ -20,7 +20,7 @@ import { useDispatch,useSelector } from 'react-redux'
 // import { resourceLimits } from 'worker_threads';
 // to get data from local storage 
 
-
+import galaxymarblelogo from '../galaxymarblelogo';
 
 
 const getLocalitems =()=>{
@@ -146,6 +146,7 @@ undertakenby:'',
 price:'',
 purchasingdate:'',
 duedate:'',
+paidamount:'',
 userId:userId
 })
 // console.log(addFormData);
@@ -159,7 +160,8 @@ Name:'',
 undertakenby:'',
 price:'',
 purchasingdate:'',
-duedate:''
+duedate:'',
+paidamount:''
 })
 
 
@@ -196,6 +198,7 @@ seteditFormData(newFormData);
 // setaddFormData(null);
 // console.log(event.target._id);
 // console.log(editFormData)
+
 }
 
 
@@ -231,6 +234,16 @@ dispatch(customerdetails(addFormData,navigate))
 //This function first find the id which we want to edit and then take the data form editFormData and after edit 
 
 const handleeditsubmit=(event)=>{
+
+
+
+
+
+
+
+
+
+  
 event.preventDefault();
 
 const editeddata={
@@ -239,10 +252,10 @@ Name:editFormData.Name,
 undertakenby:editFormData.undertakenby,
 price:editFormData.price,
 purchasingdate:editFormData.purchasingdate,
-duedate:editFormData.duedate
+duedate:editFormData.duedate,
+paidamount:editFormData.paidamount
 }
 // console.log(editeddata);
-
 // console.log(editcustomerId);
 dispatch(updatecustomer(editcustomerId,editeddata))
 // const newcustomers =[...customer];
@@ -272,7 +285,8 @@ const formvalues ={
   undertakenby:customer.undertakenby,
   price:customer.price,
   purchasingdate:customer.purchasingdate,
-  duedate:customer.duedate
+  duedate:customer.duedate,
+  paidamount:customer.paidamount
 
 }
 seteditFormData(formvalues)
@@ -313,12 +327,17 @@ const handleDeleteclick=(customerId)=>{
 
 
   return (
-    <div>
+    <div className='bodybox'>
 
 <Searchbar  searching={searching}/>
-
+<galaxymarblelogo/>
 
 <div className="app-container">
+  
+<button onClick={add}  className='formaddbtn' >{editform?'Close':'Add'}</button>
+{editform &&
+<Editform/>}
+
 <form onSubmit={handleeditsubmit}>
 
 <table>
@@ -341,9 +360,7 @@ return searchResult(search,Data)
 </tbody>
 </table>
 </form>
-<button onClick={add}  className='formaddbtn' >{editform?'Close':'Add'}</button>
-{editform &&
-<Editform/>}
+
 </div>
 </div>
   )

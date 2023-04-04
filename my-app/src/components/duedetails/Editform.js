@@ -35,6 +35,7 @@ console.log(userId)
     price: "",
     purchasingdate: "",
     duedate: "",
+    paidamount:"",
     userId: "",
   });
 
@@ -44,6 +45,7 @@ console.log(userId)
     inputs[2].value = "";
     inputs[3].value = "";
     inputs[4].value = "";
+    inputs[5].value = "";
 
     setaddFormData("");
     setcustomer("");
@@ -72,23 +74,24 @@ console.log(userId)
   const handlesubmit = (event) => {
     event.preventDefault();
 
-    const newcustomer = {
-      // id: nanoid(),
-      Name: addFormData.Name,
-      undertakenby: addFormData.undertakenby,
-      price: addFormData.price,
-      purchasingdate: addFormData.purchasingdate,
-      duedate: addFormData.duedate,
-      // userId: userId,
-    };
+    // const newcustomer = {
+    //   // id: nanoid(),
+    //   Name: addFormData.Name,
+    //   undertakenby: addFormData.undertakenby,
+    //   price: addFormData.price,
+    //   purchasingdate: addFormData.purchasingdate,
+    //   duedate: addFormData.duedate,
+    //   paidamount:addFormData.paidamount
+    //   // userId: userId,
+    // };
 
-    console.log(newcustomer);
+    // console.log(newcustomer);
 
-    const newcustomers = [...customer, newcustomer];
-    setcustomer(newcustomers);
-    console.log("this is customers");
-console.log(customer);
+//     const newcustomers = [...customer, newcustomer];
+//     setcustomer(newcustomers);
+//     // console.log("this is customers");
     console.log("This is add form");
+//     console.log(customer);
 console.log(addFormData);
     dispatch(customerdetails(addFormData,navigate));
     handleclear();
@@ -153,6 +156,17 @@ console.log(addFormData);
           placeholder="billpaymentdate"
           id="billpaymentdate"
           className="textfield textfield - 5"
+          onChange={handlechange}
+        />
+        </label>
+        <label htmlFor="paidamount">
+        <h5>PAID-AMOUNT</h5>
+        <input
+          type="number"
+          name="paidamount"
+          placeholder="paidamount"
+          id="paidamount"
+          className="textfield textfield - 6"
           onChange={handlechange}
         />
         </label>

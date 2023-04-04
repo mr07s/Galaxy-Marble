@@ -5,8 +5,8 @@ const Editablerow = ({editFormData,handleEditchange,handleCancleclick,index}) =>
   
   const [disable, setDisable] = useState('')
   const isDisabled = () =>{
-    const { Name, undertakenby, price, purchasingdate, duedate } = editFormData;
-    if (Name && undertakenby && price && purchasingdate && duedate)
+    const { Name, undertakenby, price, purchasingdate, duedate,paidamount } = editFormData;
+    if (Name && undertakenby && price && purchasingdate && duedate&&paidamount)
       setDisable(false);
     else setDisable(true);
   };
@@ -14,10 +14,6 @@ const Editablerow = ({editFormData,handleEditchange,handleCancleclick,index}) =>
     isDisabled();
     // console.log(disable);
   }, [isDisabled, disable]);
-
-  
-  
-  
   
   return (
     <tr key={editFormData._id}>
@@ -39,17 +35,15 @@ const Editablerow = ({editFormData,handleEditchange,handleCancleclick,index}) =>
 <td>
 <input type="date" name="duedate" placeholder='duedate'   value={editFormData.duedate} onChange={handleEditchange} />
 </td>
+<td>
+<input type="number" name="paidamount" placeholder='paidamount'   value={editFormData.paidamount} onChange={handleEditchange} />
+</td>
 
 <td>
     <button type='submit' disabled={disable}>save</button>
     <button onClick={handleCancleclick}>cancle</button>
 </td>
-
-
-
-
     </tr>
   )
 }
-
 export default Editablerow

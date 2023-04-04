@@ -7,9 +7,10 @@ const Readonlyrow = ({data,handleEditclick,handleDeleteclick,index}) => {
 <td>{index+1}</td>
 <td>{data.Name}</td>
 <td>{data.undertakenby}</td>
-<td>{data.price}</td>
+<td>{data.price-data.paidamount}</td>
 <td>{data.purchasingdate}</td>
 <td>{data.duedate}</td>
+<td>{data.paidamount}</td>
 <td>
 <button type='button' onClick={(event)=>handleEditclick(event,data)}>Edit</button>
 <button type='button' onClick={()=>handleDeleteclick(data._id)}>Delete</button>

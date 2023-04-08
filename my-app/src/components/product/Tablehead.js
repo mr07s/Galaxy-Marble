@@ -5,7 +5,7 @@ const Tablehead = () => {
     <tr>
     <th>SerialNo</th>
     <th>ProductImage</th>
-    <th>CompaneName</th>
+    <th>CompanyName</th>
     <th>ProductName</th>
     <th>Products-Quantity</th>
     <th>Already-Sold</th>

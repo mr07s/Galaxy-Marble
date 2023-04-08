@@ -20,19 +20,19 @@ import { useDispatch,useSelector } from 'react-redux'
 // import { resourceLimits } from 'worker_threads';
 // to get data from local storage 
 
-import galaxymarblelogo from '../galaxymarblelogo';
+import Galaxymarblelogo from '../galaxymarblelogo';
 
 
-const getLocalitems =()=>{
-let list=localStorage.getItem('info');
-// console.log(list)
-if(list){
-return JSON.parse(localStorage.getItem('info'));
-}
-else{
-  return [];
-}
-}
+// const getLocalitems =()=>{
+// let list=localStorage.getItem('info');
+// // console.log(list)
+// if(list){
+// return JSON.parse(localStorage.getItem('info'));
+// }
+// else{
+//   return [];
+// }
+// }
 
 
 
@@ -41,7 +41,7 @@ const DueditailsMain = () => {
 
 
 const duedetails =useSelector(state=>state.customerReducer);
-// console.log(duedetails);
+console.log(duedetails);
 
 // console.log(duedetails);
 
@@ -62,7 +62,7 @@ const duedetails =useSelector(state=>state.customerReducer);
 
 
 
-const {id} =useParams();
+// const {id} =useParams();
 // console.log(id);
 const User =JSON.parse(localStorage.getItem('Profile'));
 // const userId= User.result.id;
@@ -72,7 +72,7 @@ const userId= User?.result?._id;
 
 
   const dispatch =useDispatch();
-  const navigate =useNavigate();
+  // const navigate =useNavigate();
         
 //search filter         
 const [search,setSearch]=useState('');
@@ -135,35 +135,35 @@ const add=()=>{
 
 
   //It stores the customer data
-const[customer,setcustomer]=useState(getLocalitems());
+// const[customer,setcustomer]=useState(getLocalitems());
 // console.log(customer);
 //It stores the data which we want to add
-const[addFormData,setaddFormData]=useState({
-id:'',
-SerialNo:'',
-Name:'',
-undertakenby:'',
-price:'',
-purchasingdate:'',
-duedate:'',
-paidamount:'',
-userId:userId
-})
+// const[addFormData,setaddFormData]=useState({
+// id:'',
+// SerialNo:'',
+// Name:'',
+// undertakenby:'',
+// price:'',
+// purchasingdate:'',
+// duedate:'',
+// paidamount:'',
+// userId:userId
+// })
 // console.log(addFormData);
 
 
 
 //It stores the data which we want to edit
-const[editFormData,seteditFormData]=useState({
-id:'',
-Name:'',
-undertakenby:'',
-price:'',
-purchasingdate:'',
-duedate:'',
-paidamount:''
-})
-
+// const[editFormData,seteditFormData]=useState({
+// id:'',
+// Name:'',
+// undertakenby:'',
+// price:'',
+// purchasingdate:'',
+// duedate:'',
+// paidamount:''
+// })
+// const [oldpaidData,setoldpaidData] = useState('0');
 
 
 
@@ -173,101 +173,94 @@ const [editcustomerId,seteditcustomerId]=useState(null);
 
 
 // When we first add the data in the formated place  this stores the new data in addFormData variable
-const handlechange=(event)=>{
-event.preventDefault();
-const fieldName=event.target.getAttribute('name')
-const fieldvalue= event.target.value;
-const newFormData={...addFormData};
-newFormData[fieldName]=fieldvalue;
-setaddFormData(newFormData);
+// const handlechange=(event)=>{
+// event.preventDefault();
+// const fieldName=event.target.getAttribute('name')
+// const fieldvalue= event.target.value;
+// const newFormData={...addFormData};
+// newFormData[fieldName]=fieldvalue;
+// newFormData["userId"]=userId;
+// setaddFormData(newFormData);
 // console.log(addFormData);
 
+// setoldpaidData(addFormData);
+// // console.log(addFormData)
+
+// };
 
 
-};
+// const handleEditchange=(event)=>{
+// event.preventDefault();
 
-const handleEditchange=(event)=>{
-event.preventDefault();
+// const oldPSQdata =oldFormData['productSellingquantity']
+// const oldPQdata =oldFormData['productquantity'];
 
-const fieldName =event.target.getAttribute('name');
-const fieldvalue=event.target.value;
+// if(oldPSQdata!=editFormData['productSellingquantity']){
+//   console.log("Hiiibggd");
+//   if(parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity'])>0 &&editFormData['productSellingquantity']>0){
+//   editFormData['productquantity']=parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity']);}
+//   else if( editFormData['productSellingquantity']<0){
+//     editFormData['productSellingquantity']=0;
+//     editFormData['productquantity']=parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity']);
+//   }
+//   else{
+//     editFormData['productquantity']=0;
+//   }
+//   if(editFormData['productSellingquantity']==='000' ||editFormData['productSellingquantity']<0){
+//     editFormData['productSellingquantity']=0;
+//   }
+//   else{
 
-const newFormData ={...editFormData};
-newFormData[fieldName]=fieldvalue;
-seteditFormData(newFormData);
-// setaddFormData(null);
-// console.log(event.target._id);
-// console.log(editFormData)
+//     editFormData['productSellingquantity']= parseInt(oldPSQdata)+parseInt(editFormData['productSellingquantity']);
+//   }
+//   // console.log(editFormData['productSellingquantity']);
 
-}
+// }
+// const fieldName    =event.target.getAttribute('name');
+// const fieldvalue   =event.target.value;
+
+
+// const newFormData ={...editFormData};
+// newFormData[fieldName]=fieldvalue;
+
+// seteditFormData(newFormData);
+
+
+// // setaddFormData(null);
+// // console.log(event.target._id);
+// // console.log(editFormData)
+// }
 
 
 
 
 //After adding the data in the  formated place when we submit it ,this function create a new array of objects with old objects and the new added oone and then save it to the customer variable
-const handlesubmit=(event)=>{
+// const handlesubmit=(event)=>{
 
-event.preventDefault();
+// event.preventDefault();
 
-const newcustomer ={
-id:nanoid(),
-Name:addFormData.Name,
-undertakenby:addFormData.undertakenby,
-price:addFormData.price,
-purchasingdate:addFormData.purchasingdate,
-duedate:addFormData.duedate
+// const newcustomer ={
+// id:nanoid(),
+// Name:addFormData.Name,
+// undertakenby:addFormData.undertakenby,
+// price:addFormData.price,
+// purchasingdate:addFormData.purchasingdate,
+// duedate:addFormData.duedate
 
-}
+// }
 
-const newcustomers=[...customer,newcustomer]
-setcustomer(newcustomers)
+// const newcustomers=[...customer,newcustomer]
+// setcustomer(newcustomers)
 
-dispatch(customerdetails(addFormData,navigate)) 
+// dispatch(customerdetails(addFormData,navigate)) 
 
-
-}
+// }
 
 
 
 
 
 //This function first find the id which we want to edit and then take the data form editFormData and after edit 
-
-const handleeditsubmit=(event)=>{
-
-
-
-
-
-
-
-
-
-  
-event.preventDefault();
-
-const editeddata={
-// id:editcustomerId,
-Name:editFormData.Name,
-undertakenby:editFormData.undertakenby,
-price:editFormData.price,
-purchasingdate:editFormData.purchasingdate,
-duedate:editFormData.duedate,
-paidamount:editFormData.paidamount
-}
-// console.log(editeddata);
-// console.log(editcustomerId);
-dispatch(updatecustomer(editcustomerId,editeddata))
-// const newcustomers =[...customer];
-// const index=customer.findIndex((customer)=>customer._id===editcustomerId );
-// newcustomers[index]=editeddata;
-// setcustomer(newcustomers);
-dispatch(getdetails());
-seteditcustomerId(null); 
-
-
-}
-
 
 
 
@@ -279,19 +272,74 @@ event.preventDefault();
 // console.log(customer);
 seteditcustomerId(customer._id)
 
-const formvalues ={
+// const formvalues ={
 
-  Name:customer.Name,
-  undertakenby:customer.undertakenby,
-  price:customer.price,
-  purchasingdate:customer.purchasingdate,
-  duedate:customer.duedate,
-  paidamount:customer.paidamount
+//   Name:customer.Name,
+//   undertakenby:customer.undertakenby,
+//   price:customer.price,
+//   purchasingdate:customer.purchasingdate,
+//   duedate:customer.duedate,
+//   paidamount:customer.paidamount
 
-}
-seteditFormData(formvalues)
+// }
+// seteditFormData(formvalues)
 // console.log(editFormData);
 }
+
+
+
+// const handleeditsubmit=(event)=>{
+  
+//   event.preventDefault();
+//   // console.log(oldpaidData);
+//   console.log(editFormData);
+//   console.log("Hii");
+  
+//   console.log(oldpaidData);
+ 
+
+//   if(parseInt(editFormData["price"])-parseInt(editFormData['paidamount'])>=0){
+//     editFormData['price']=editFormData["price"]-editFormData['paidamount'];
+//     editFormData['paidamount']=parseInt(oldpaidData)+parseInt(editFormData['paidamount']);
+  
+//   }
+// const editeddata={
+// // id:editcustomerId,
+// Name:editFormData.Name,
+// undertakenby:editFormData.undertakenby,
+// price:editFormData.price,
+// purchasingdate:editFormData.purchasingdate,
+// duedate:editFormData.duedate,
+// paidamount:editFormData.paidamount
+// }
+
+// // if(addFormData["paidamount"]!==editFormData["paidamount"]){
+// // console.log("Noo");
+// // }
+
+// // console.log(editeddata);
+// // console.log(editcustomerId);
+
+// dispatch(updatecustomer(editcustomerId,editeddata))
+// // const newcustomers =[...customer];
+// // const index=customer.findIndex((customer)=>customer._id===editcustomerId );
+// // newcustomers[index]=editeddata;
+// // setcustomer(newcustomers);
+
+// dispatch(getdetails());
+// if(editcustomerId === duedetails?.data._id){
+//   setoldpaidData( editFormData['paidamount']);
+
+// }
+// else{
+//   console.log(editcustomerId);
+//   setoldpaidData('0');
+// }
+// seteditcustomerId(null); 
+
+// }
+
+
 
 const handleCancleclick=()=>{
 
@@ -315,10 +363,6 @@ const handleDeleteclick=(customerId)=>{
 }
 
 
-
-
-
-
 //Add data to local storage
 // useEffect(() => {
 // localStorage.setItem('info',JSON.stringify(customer))
@@ -330,15 +374,15 @@ const handleDeleteclick=(customerId)=>{
     <div className='bodybox'>
 
 <Searchbar  searching={searching}/>
-<galaxymarblelogo/>
+<Galaxymarblelogo/>
 
 <div className="app-container">
   
 <button onClick={add}  className='formaddbtn' >{editform?'Close':'Add'}</button>
 {editform &&
-<Editform/>}
+<Editform />}
 
-<form onSubmit={handleeditsubmit}>
+<form >
 
 <table>
 <thead> 
@@ -351,7 +395,7 @@ return searchResult(search,Data)
   Data.userId === userId
 ).map((data,index)=>(
 <Fragment key={index}>
-{editcustomerId === data._id?(<Editablerow editFormData={editFormData} handleEditchange={handleEditchange} handleCancleclick={handleCancleclick} index={index}/>): 
+{editcustomerId === data._id?(<Editablerow   data={data}  handleCancleclick={handleCancleclick}  index={index}/>): 
 (<Readonlyrow data={data} handleEditclick={handleEditclick} handleDeleteclick={handleDeleteclick} index={index} />)}
 </Fragment>
 ))

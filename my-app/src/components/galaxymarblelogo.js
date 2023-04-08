@@ -1,6 +1,6 @@
 import React from 'react'
 
-const galaxymarblelogo = () => {
+const Galaxymarblelogo = () => {
   return (
     <>
     <div className="logocontainer">
@@ -23,4 +23,4 @@ const galaxymarblelogo = () => {
   )
 }
 
-export default galaxymarblelogo
+export default Galaxymarblelogo

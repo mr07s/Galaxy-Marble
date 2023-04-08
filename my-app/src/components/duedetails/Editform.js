@@ -52,8 +52,8 @@ console.log(userId)
   };
 
   const isDisabled = () => {
-    const { Name, undertakenby, price, purchasingdate, duedate } = addFormData;
-    if (Name && undertakenby && price && purchasingdate && duedate)
+    const { Name, undertakenby, price, purchasingdate, duedate,paidamount } = addFormData;
+    if (Name && undertakenby && price && purchasingdate && duedate && paidamount)
       setDisable(false);
     else setDisable(true);
   };

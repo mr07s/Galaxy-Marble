@@ -35,6 +35,8 @@ const Editablerow = ({ data, handleCancleclick, index }) => {
   }, [isDisabled, disable]);
 
   // console.log(editFormData);
+  var updateddata;
+  const [updateData,setUpdateData]=useState(0)
   const handleEditchange = (event) => {
     event.preventDefault();
 
@@ -43,13 +45,16 @@ const Editablerow = ({ data, handleCancleclick, index }) => {
 
     const newFormData = {...editFormData };
 
-    if (fieldName === "productSellingquantity") {
 
+    if (fieldName === "productSellingquantity")
+    {
       newFormData[fieldName] = event.target.value;
       seteditFormData(newFormData);
+      setUpdateData( event.target.value);
     
     }
-     else{
+     else
+     {
       const fieldvalue = event.target.value;
       newFormData[fieldName] = fieldvalue;
       seteditFormData(newFormData);
@@ -59,29 +64,44 @@ const Editablerow = ({ data, handleCancleclick, index }) => {
     }
   };
 
-  const handlesubmit = (e) => {
+  const handlesubmit = (e) =>{
     e.preventDefault();
     const oldPSQdata =oldFormData['productSellingquantity']
     const oldPQdata =oldFormData['productquantity'];
-
-    if(oldPSQdata!=editFormData['productSellingquantity']){
+console.log(oldPSQdata)
+console.log(oldPQdata)
+    if(parseInt(oldPSQdata)!==parseInt(editFormData['productSellingquantity'])){
       console.log("Hiiibggd");
-      if(parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity'])>0 &&editFormData['productSellingquantity']>0){
-      editFormData['productquantity']=parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity']);}
-      else if( editFormData['productSellingquantity']<0){
-        editFormData['productSellingquantity']=0;
+      if(parseInt(editFormData["productquantity"])-parseInt(editFormData['productSellingquantity'])>=0 &&editFormData['productSellingquantity']>0)
+      {
         editFormData['productquantity']=parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity']);
-      }
-      else{
-        editFormData['productquantity']=0;
-      }
-      if(editFormData['productSellingquantity']==='000' ||editFormData['productSellingquantity']<0){
-        editFormData['productSellingquantity']=0;
-      }
-      else{
+        editFormData['productSellingquantity']=parseInt(oldPSQdata)+parseInt(editFormData['productSellingquantity']);
+      
+    }
 
+   
+      else if( parseInt(editFormData['productSellingquantity'])<0)
+      {
+        alert("Not possible");
+        editFormData['productSellingquantity']=oldPSQdata;
+
+        // editFormData['productSellingquantity']=0;
+        // editFormData['productquantity']=parseInt(oldPQdata)-parseInt(editFormData['productSellingquantity']);
+      }
+      else if(parseInt(editFormData['productSellingquantity'])>parseInt(oldPQdata)){
+        alert("Action Not possible! Selling quantity is greater then product quantity ")
+        editFormData['productSellingquantity']=oldPSQdata;
+      }
+      // else
+      // {
+      //   editFormData['productquantity']=0;
+      // }
+ 
+      else
+      {
         editFormData['productSellingquantity']= parseInt(oldPSQdata)+parseInt(editFormData['productSellingquantity']);
       }
+
       // console.log(editFormData['productSellingquantity']);
 
     }

@@ -7,7 +7,7 @@ const Readonlyrow = ({data,handleEditclick,handleDeleteclick,index}) => {
 <td>{index+1}</td>
 <td>{data.Name}</td>
 <td>{data.undertakenby}</td>
-<td>{data.price-data.paidamount}</td>
+<td>{data.price}</td>
 <td>{data.purchasingdate}</td>
 <td>{data.duedate}</td>
 <td>{data.paidamount}</td>

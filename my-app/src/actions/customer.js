@@ -38,6 +38,8 @@ export const deletecustomerdetails = (customerId) => async (dispatch) => {
 
 export const updatecustomer = (id, editcustomerdata) => async (dispatch) => {
   try {
+    console.log("Heyyyy")
+    console.log(id);
     api.editcustomer(id, editcustomerdata);
     dispatch(getdetails());
   } catch (error) {

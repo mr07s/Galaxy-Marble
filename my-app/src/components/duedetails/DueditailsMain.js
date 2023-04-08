@@ -374,7 +374,7 @@ const handleDeleteclick=(customerId)=>{
     <div className='bodybox'>
 
 <Searchbar  searching={searching}/>
-<Galaxymarblelogo/>
+{/* <Galaxymarblelogo/> */}
 
 <div className="app-container">
   

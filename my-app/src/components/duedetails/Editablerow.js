@@ -17,18 +17,20 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
   // console.log("jHe llllj");
 
   const isDisabled = () => {
-    const { Name, undertakenby, price, purchasingdate, duedate, paidamount } =
-    editFormData;
+    const { Name, undertakenby, price, purchasingdate, duedate, paidamount, volume, pages } =
+      editFormData;
     if (
       Name &&
       undertakenby &&
       price &&
       purchasingdate &&
       duedate &&
-      paidamount
+      paidamount &&
+      volume &&
+      pages
     )
       setDisable(false);
-    else setDisable(true); 
+    else setDisable(true);
   };
   useEffect(() => {
     isDisabled();
@@ -57,10 +59,10 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
 
 
 
-// const handleSubmit=(e)=>{
-//   e.preventDefault();
-//   console.log("Hii")
-// }
+  // const handleSubmit=(e)=>{
+  //   e.preventDefault();
+  //   console.log("Hii")
+  // }
 
 
 
@@ -70,32 +72,32 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
 
     // console.log(editFormData);
     console.log("Hiiboyyy");
-    const oldPaidAmount =oldData["paidamount"];
-    const oldPrice =oldData['price'];
-    if(oldData["paidamount"]!==editFormData["paidamount"]){
+    const oldPaidAmount = oldData["paidamount"];
+    const oldPrice = oldData['price'];
+    if (oldData["paidamount"] !== editFormData["paidamount"]) {
 
-    if(parseInt(editFormData["price"])-parseInt(editFormData['paidamount'])>=0&&parseInt(editFormData['paidamount'])>=0){
-// console.log("Okk")
-editFormData["price"]=parseInt(oldPrice)-editFormData["paidamount"];
-editFormData["paidamount"]=parseInt(oldPaidAmount)+parseInt(editFormData["paidamount"]);
+      if (parseInt(editFormData["price"]) - parseInt(editFormData['paidamount']) >= 0 && parseInt(editFormData['paidamount']) >= 0) {
+        // console.log("Okk")
+        editFormData["price"] = parseInt(oldPrice) - editFormData["paidamount"];
+        editFormData["paidamount"] = parseInt(oldPaidAmount) + parseInt(editFormData["paidamount"]);
+
+      }
+      else if (parseInt(editFormData["price"]) - parseInt(editFormData['paidamount']) < 0) {
+        console.log("Okk")
+        alert("This payment not possible");
+        editFormData["paidamount"] = oldPaidAmount;
+      }
+
+      else if (parseInt(editFormData['paidamount']) < 0) {
+        console.log("Okk")
+        alert("This payment not possible");
+        editFormData["paidamount"] = oldPaidAmount;
+      }
+
+
+
 
     }
-    else if(parseInt(editFormData["price"])-parseInt(editFormData['paidamount'])<0){
-console.log("Okk")
-alert("This payment not possible");
-editFormData["paidamount"]=oldPaidAmount;
-    }
-
-    else if(parseInt(editFormData['paidamount'])<0){
-console.log("Okk")
-alert("This payment not possible");
-editFormData["paidamount"]=oldPaidAmount;
-    }
-
-
-
-
-  }
     // console.log(oldpaidData);
 
     // if(parseInt(editFormData["price"])-parseInt(editFormData['paidamount'])>=0){
@@ -103,9 +105,9 @@ editFormData["paidamount"]=oldPaidAmount;
     //   editFormData['paidamount']=parseInt(oldpaidData)+parseInt(editFormData['paidamount']);
 
     // }
-  
 
-    
+
+
     // console.log(editeddata);
     dispatch(updatecustomer(data._id, editFormData));
     dispatch(getdetails());
@@ -117,7 +119,7 @@ editFormData["paidamount"]=oldPaidAmount;
 
 
 
- 
+
   return (
     <tr key={editFormData._id}>
       <td>{index + 1}</td>
@@ -172,6 +174,24 @@ editFormData["paidamount"]=oldPaidAmount;
           name="paidamount"
           placeholder="paidamount"
           value={editFormData.paidamount}
+          onChange={handleEditchange}
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          name="volume"
+          placeholder="volume"
+          value={editFormData.volume}
+          onChange={handleEditchange}
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          name="pages"
+          placeholder="pages"
+          value={editFormData.pages}
           onChange={handleEditchange}
         />
       </td>

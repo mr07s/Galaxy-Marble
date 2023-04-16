@@ -73,7 +73,7 @@ font-weight: 600;
 
   }
   
-  form
+  .form
   {
     display: grid;
     gap: 1.2rem;
@@ -85,19 +85,19 @@ font-weight: 600;
   overflow: auto;
   }
   
-  form td:last-child 
+  .form td:last-child 
   {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 7rem;
   }
-  form td:last-child button
+  .form td:last-child button
   {
     height: 3rem;
   }
   
-  form  {
+  .form  {
     font-size: 1.2rem;
    
   }
@@ -124,21 +124,21 @@ background-color: rgb(33, 39, 46);
 
 
   /* Table scroll bar design*/
-  form{
+  .form{
     scrollbar-width: thin;
 }
-form::-webkit-scrollbar{
+.form::-webkit-scrollbar{
     width: 1.2vw;
 }
-form::-webkit-scrollbar-thumb{
+.form::-webkit-scrollbar-thumb{
     background-color: rgb(109, 109, 109);
     border:5px solid white;
     border-radius: 10px;
     /* width: 50%; */
 }
-form::-webkit-scrollbar-thumb:hover{
+.form::-webkit-scrollbar-thumb:hover{
     background-color: rgb(168, 167, 167);
 }
-form::-webkit-scrollbar-track{
+.form::-webkit-scrollbar-track{
     background-color: white;
 }

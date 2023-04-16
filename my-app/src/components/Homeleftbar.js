@@ -3,20 +3,20 @@ import './Homeleftbar.css'
 const Homeleftbar = () => {
   return (
     <>
-    <div className="outercontainer">
-    <div className="container">
+      <div className="outercontainer">
+        <div className="container">
 
-<div className="innercontainer">
-<h1>GalaxyMarvel</h1>
+          <div className="innercontainer">
+            <h1>GalaxyMarble</h1>
 
-</div>
-
-
+          </div>
 
 
-    </div>
-    
-    </div>
+
+
+        </div>
+
+      </div>
     </>
   )
 }

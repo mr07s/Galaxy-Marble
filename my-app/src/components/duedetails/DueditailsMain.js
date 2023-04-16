@@ -381,7 +381,7 @@ const DueditailsMain = () => {
         {editform &&
           <Editform />}
 
-        <form >
+        <form className='form'>
 
           <table>
             <thead>

@@ -48,6 +48,8 @@ const Editform = () => {
     inputs[3].value = "";
     inputs[4].value = "";
     inputs[5].value = "";
+    inputs[6].value = "";
+    inputs[7].value = "";
 
     setaddFormData("");
     setcustomer("");

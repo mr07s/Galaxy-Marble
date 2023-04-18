@@ -26,8 +26,8 @@ const Editform = () => {
   const Message = useSelector((state) => state.customerReducer);
 
   const userId = User?.result?._id;
-// const userId=user.toString();
-console.log(userId)
+  // const userId=user.toString();
+  console.log(userId)
   var newcustomer;
   const [addFormData, setaddFormData] = useState({
     Name: "",
@@ -35,7 +35,9 @@ console.log(userId)
     price: "",
     purchasingdate: "",
     duedate: "",
-    paidamount:"",
+    paidamount: "",
+    volume: "",
+    pages: "",
     userId: "",
   });
 
@@ -46,14 +48,16 @@ console.log(userId)
     inputs[3].value = "";
     inputs[4].value = "";
     inputs[5].value = "";
+    inputs[6].value = "";
+    inputs[7].value = "";
 
     setaddFormData("");
     setcustomer("");
   };
 
   const isDisabled = () => {
-    const { Name, undertakenby, price, purchasingdate, duedate,paidamount } = addFormData;
-    if (Name && undertakenby && price && purchasingdate && duedate && paidamount)
+    const { Name, undertakenby, price, purchasingdate, duedate, paidamount, volume, pages } = addFormData;
+    if (Name && undertakenby && price && purchasingdate && duedate && paidamount && volume && pages)
       setDisable(false);
     else setDisable(true);
   };
@@ -67,7 +71,7 @@ console.log(userId)
     const fieldvalue = event.target.value;
     const newFormData = { ...addFormData };
     newFormData[fieldName] = fieldvalue;
-    newFormData["userId"]=userId;
+    newFormData["userId"] = userId;
     setaddFormData(newFormData);
   };
 
@@ -87,13 +91,13 @@ console.log(userId)
 
     // console.log(newcustomer);
 
-//     const newcustomers = [...customer, newcustomer];
-//     setcustomer(newcustomers);
-//     // console.log("this is customers");
+    //     const newcustomers = [...customer, newcustomer];
+    //     setcustomer(newcustomers);
+    //     // console.log("this is customers");
     console.log("This is add form");
-//     console.log(customer);
-console.log(addFormData);
-    dispatch(customerdetails(addFormData,navigate));
+    //     console.log(customer);
+    console.log(addFormData);
+    dispatch(customerdetails(addFormData, navigate));
     handleclear();
   };
 
@@ -101,74 +105,96 @@ console.log(addFormData);
     <>
       <h2>Add new customer</h2>
       <form className="Editform" id="myForm" onSubmit={handlesubmit}>
-       <label htmlFor="username">
-       <h5>Name</h5>
-        <input
-          required
-          type="text"
-          name="Name"
-          placeholder="Name"
-          id="username"
-          className="textfield textfield - 1"
-          onChange={handlechange}
-        />
-      </label>
-      <label htmlFor="undertakenby">
-      <h5>UnderTaken-By</h5>
-        <input
-          type="text"
-          name="undertakenby"
-          placeholder="Undertaken by"
-          id="undertakenby"
-          className="textfield textfield - 2"
-          onChange={handlechange}
-        />
+        <label htmlFor="username">
+          <h5>Name</h5>
+          <input
+            required
+            type="text"
+            name="Name"
+            placeholder="Name"
+            id="username"
+            className="textfield textfield - 1"
+            onChange={handlechange}
+          />
+        </label>
+        <label htmlFor="undertakenby">
+          <h5>UnderTaken-By</h5>
+          <input
+            type="text"
+            name="undertakenby"
+            placeholder="Undertaken by"
+            id="undertakenby"
+            className="textfield textfield - 2"
+            onChange={handlechange}
+          />
         </label>
 
         <label htmlFor="billamount">
-        <h5>Billamount</h5>
-        <input
-          type="number"
-          name="price"
-          placeholder="Bill amount"
-          id="billamount"
-          className="textfield textfield - 3"
-          onChange={handlechange}
-        />
+          <h5>Billamount</h5>
+          <input
+            type="number"
+            name="price"
+            placeholder="Bill amount"
+            id="billamount"
+            className="textfield textfield - 3"
+            onChange={handlechange}
+          />
 
         </label>
         <label htmlFor="purchasingdate">
-        <h5>PURCHASE-DATE</h5>
-        <input
-          type="date"
-          name="purchasingdate"
-          placeholder="purchasingdate"
-          id="purchasingdate"
-          className="textfield textfield - 4"
-          onChange={handlechange}
-        />
+          <h5>PURCHASE-DATE</h5>
+          <input
+            type="date"
+            name="purchasingdate"
+            placeholder="purchasingdate"
+            id="purchasingdate"
+            className="textfield textfield - 4"
+            onChange={handlechange}
+          />
         </label>
         <label htmlFor="billpaymentdate">
-        <h5>PAYMENT-DATE</h5>
-        <input
-          type="date"
-          name="duedate"
-          placeholder="billpaymentdate"
-          id="billpaymentdate"
-          className="textfield textfield - 5"
-          onChange={handlechange}
-        />
+          <h5>PAYMENT-DATE</h5>
+          <input
+            type="date"
+            name="duedate"
+            placeholder="billpaymentdate"
+            id="billpaymentdate"
+            className="textfield textfield - 5"
+            onChange={handlechange}
+          />
         </label>
         <label htmlFor="paidamount">
-        <h5>PAID-AMOUNT</h5>
-        <input
-          type="number"
-          name="paidamount"
-          placeholder="paidamount"
-          id="paidamount"
-          className="textfield textfield - 6"
-          onChange={handlechange}
-        />
+          <h5>PAID-AMOUNT</h5>
+          <input
+            type="number"
+            name="paidamount"
+            placeholder="paidamount"
+            id="paidamount"
+            className="textfield textfield - 6"
+            onChange={handlechange}
+          />
+        </label>
+        <label htmlFor="volume">
+          <h5>volume</h5>
+          <input
+            type="number"
+            name="volume"
+            placeholder="volume"
+            id="volume"
+            className="textfield textfield - 6"
+            onChange={handlechange}
+          />
+        </label>
+        <label htmlFor="pages">
+          <h5>Pages</h5>
+          <input
+            type="number"
+            name="pages"
+            placeholder="pages"
+            id="pages"
+            className="textfield textfield - 6"
+            onChange={handlechange}
+          />
         </label>
         <button
           id="btn"

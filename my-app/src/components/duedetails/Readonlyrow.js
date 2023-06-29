@@ -1,15 +1,17 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const Readonlyrow = ({ data, handleEditclick, handleDeleteclick, index }) => {
-  // console.log(data._id)
+  console.log(data._id)
   return (
     <tr key={data?._id}>
       <td>{index + 1}</td>
-      <td>{data.Name}</td>
+      <td><Link to={`/paymenthistory/${data._id}`}>{data.Name}</Link></td>
       <td>{data.undertakenby}</td>
       <td>{data.price}</td>
       <td>{data.purchasingdate}</td>
       <td>{data.duedate}</td>
+      <td>{data.nextpaymentdate|| 0}</td>
       <td>{data.paidamount}</td>
       <td>{data?.volume || 0}</td>
       <td>{data?.pages || 0}</td>

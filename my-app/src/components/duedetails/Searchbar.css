@@ -4,22 +4,22 @@
 width: 100vw;
 /* border: 2px solid black; */
 height: 4rem;
-margin-top: 7rem;
+margin-top: 5rem;
 display: flex;
 justify-content: right;
 }
-.inputsearchbar{
-    height:3rem ;
-    margin-right:1.5rem ;
-    margin-top: .5rem;
+.inputsearchbar {
+    height: 0.75rem;
+    margin-right: 1.5rem;
+    margin-top: 0.3rem;
     border-radius: 2rem;
-    width: 400px;
+    width: 250px;
     font-size: 1.5rem;
     font-style: oblique;
     font-weight: bold;
     color: rgb(34, 151, 241);
     border: 2px solid rgb(11, 12, 12);
-    padding: 1.2rem;
+    padding: 1rem;
 }
 .inputsearchbar:hover{
 

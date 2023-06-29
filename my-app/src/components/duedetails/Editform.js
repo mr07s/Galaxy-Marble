@@ -34,11 +34,19 @@ const Editform = () => {
     undertakenby: "",
     price: "",
     purchasingdate: "",
+    nextpaymentdate:"",
     duedate: "",
     paidamount: "",
     volume: "",
     pages: "",
     userId: "",
+
+    paymentHistory:[{
+      price: "",
+      paidamount:"",
+      due:'0',
+      lastPaidDate:'',
+  }]
   });
 
   const handleclear = (event) => {
@@ -50,14 +58,15 @@ const Editform = () => {
     inputs[5].value = "";
     inputs[6].value = "";
     inputs[7].value = "";
+    inputs[8].value = "";
 
     setaddFormData("");
     setcustomer("");
   };
 
   const isDisabled = () => {
-    const { Name, undertakenby, price, purchasingdate, duedate, paidamount, volume, pages } = addFormData;
-    if (Name && undertakenby && price && purchasingdate && duedate && paidamount && volume && pages)
+    const { Name, undertakenby, price, purchasingdate, duedate, paidamount, volume, pages ,nextpaymentdate} = addFormData;
+    if (Name && undertakenby && price && purchasingdate && duedate && paidamount && volume && pages &&nextpaymentdate)
       setDisable(false);
     else setDisable(true);
   };
@@ -163,6 +172,17 @@ const Editform = () => {
             onChange={handlechange}
           />
         </label>
+        <label htmlFor="nextpaymentdate">
+          <h5>Next PAYMENT-DATE</h5>
+          <input
+            type="date"
+            name="nextpaymentdate"
+            placeholder="nextpaymentdate"
+            id="nextpaymentdate"
+            className="textfield textfield - 5"
+            onChange={handlechange}
+          />
+        </label>
         <label htmlFor="paidamount">
           <h5>PAID-AMOUNT</h5>
           <input
@@ -196,6 +216,7 @@ const Editform = () => {
             onChange={handlechange}
           />
         </label>
+        
         <button
           id="btn"
           type="submit"
@@ -204,7 +225,7 @@ const Editform = () => {
         >
           Submit
         </button>
-
+       
         {/* {message
         
         

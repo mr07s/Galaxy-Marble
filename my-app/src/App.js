@@ -1,5 +1,6 @@
 import './App.css';
 import Dueditails from './components/duedetails/DueditailsMain'
+import Showduedetail from './components/duedetails/DueDetailsAddPage'
 import Navbar from './components/Navbar';
 import { Route, Routes } from "react-router-dom"
 import Signup from './components/Auth/Signup';
@@ -11,6 +12,7 @@ import { getdetails } from './actions/customer';
 import { fetchpdetail } from './actions/product';
 import ShowProduct from './components/product/ShowProduct';
 import Home from './components/Home';
+import Paymenthistory from './components/Paymenthistory/Paymenthistory';
 function App() {
 
 const dispatch=useDispatch();
@@ -40,6 +42,8 @@ dispatch(fetchpdetail())
 <Route path='/Login' element={<Login/>}/> 
 <Route path='/addproduct' element={<AddProduct/>}></Route>
 <Route path='/showproduct' element={<ShowProduct/>}></Route>
+<Route path='/addduedetails' element={<Showduedetail/>}></Route>
+<Route path='/paymenthistory/:id' element={<Paymenthistory/>}></Route>
 
 </Routes>
 

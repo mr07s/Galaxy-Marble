@@ -7,7 +7,7 @@ const Homeleftbar = () => {
         <div className="container">
 
           <div className="innercontainer">
-            <h1>GalaxyMarble</h1>
+            <p>GalaxyMarble</p>
 
           </div>
 

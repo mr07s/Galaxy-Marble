@@ -80,7 +80,8 @@ const searchResult =(search,data)=>{
       <>
       <Searchbar  searching={searching}/>
     <div className='outerbox'>
-<table className='outertable'>
+      <div className='outertable'>
+<table>
 <thead> 
 <Tablehead/>
 </thead>
@@ -102,6 +103,7 @@ getpdetails?.data?.filter((Data)=>{
 
 </tbody>
 </table>
+    </div>
     </div>
     </>
   )

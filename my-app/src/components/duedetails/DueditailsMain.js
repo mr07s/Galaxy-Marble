@@ -98,15 +98,15 @@ const DueditailsMain = () => {
         return data.undertakenby.toLowerCase().includes(search);
       }
 
-      else if (data?.price?.toLowerCase().includes(search)) {
-        return data.price.toLowerCase().includes(search);
+      else if (data?.Name?.toLowerCase().includes(search)) {
+        return data.Name.toLowerCase().includes(search);
       }
 
       // else if(data.purchasingdate.includes(search)){
       //   return data.purchasingdate.includes(search);
       // }
-      else if (data?.duedate?.includes(search)) {
-        return data.duedate.includes(search);
+      else if (data?.nextpaymentdate?.includes(search)) {
+        return data.nextpaymentdate.includes(search);
       }
 
     }
@@ -377,9 +377,9 @@ const DueditailsMain = () => {
         {/* <div>
           {totalDue}
         </div> */}
-        <button onClick={add} className='formaddbtn' >{editform ? 'Close' : 'Add'}</button>
+        {/* <button onClick={add} className='formaddbtn' >{editform ? 'Close' : 'Add'}</button>
         {editform &&
-          <Editform />}
+          <Editform />} */}
 
         <form className='form'>
 

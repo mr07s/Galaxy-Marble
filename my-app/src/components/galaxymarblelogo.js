@@ -5,15 +5,8 @@ const Galaxymarblelogo = () => {
     <>
     <div className="logocontainer">
 
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
-<h4>Galaxymarble</h4>
+<h2>Galaxymarble</h2>
+
 
     </div>
     

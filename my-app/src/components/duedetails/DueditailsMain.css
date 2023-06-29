@@ -1,6 +1,7 @@
 
 body{
   /* background-image: url('../images/istockphoto-636013786-1024x1024.jpg'); */
+  
   background-repeat: no-repeat;
   background-attachment: fixed;
  background-size: cover;
@@ -12,7 +13,13 @@ body{
   height: 100vh;
   width: 100vw;
 } */
-
+*{
+  font-size: .95rem !important;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
 .app-container
 {
     display: flex;
@@ -25,6 +32,8 @@ body{
     justify-content: center;
     align-items: center;
    /* background-color: black; */
+padding-top: 0;
+margin-top: 0;
 
   }
   
@@ -34,13 +43,14 @@ body{
     min-width: 70vw;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
     overflow:'auto';
+    
   }
   
   th,
   td{
     text-align: center;
     padding: 1.2rem;
-    font-size: 1.5rem;
+    font-size: .95rem !important;
     color: rgb(5, 13, 82) !important;
     font-weight: bold;
     /* font-family: 'Edu NSW ACT Foundation', cursive; */
@@ -83,6 +93,8 @@ font-weight: 600;
   margin: 2rem;
   box-sizing: border-box;
   overflow: auto;
+  height: 70vh;
+ 
   }
   
   .form td:last-child 

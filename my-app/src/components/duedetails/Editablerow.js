@@ -17,7 +17,7 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
   // console.log("jHe llllj");
 
   const isDisabled = () => {
-    const { Name, undertakenby, price, purchasingdate, duedate, paidamount, volume, pages } =
+    const { Name, undertakenby, price, purchasingdate, duedate, paidamount, volume, pages,nextpaymentdate } =
       editFormData;
     if (
       Name &&
@@ -27,7 +27,8 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
       duedate &&
       paidamount &&
       volume &&
-      pages
+      pages&&
+      nextpaymentdate
     )
       setDisable(false);
     else setDisable(true);
@@ -165,6 +166,15 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
           name="duedate"
           placeholder="duedate"
           value={editFormData.duedate}
+          onChange={handleEditchange}
+        />
+      </td>
+      <td>
+        <input
+          type="date"
+          name="nextpaymentdate"
+          placeholder="nextpaymentdate"
+          value={editFormData.nextpaymentdate}
           onChange={handleEditchange}
         />
       </td>

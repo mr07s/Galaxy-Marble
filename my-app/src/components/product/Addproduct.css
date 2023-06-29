@@ -12,7 +12,7 @@ height: 100vh;
 
   }
   .formholder {
-      display: flex;
+      /* display: flex;
       flex-direction: column;
       margin:3rem ;
       gap: 1.5rem;
@@ -20,21 +20,21 @@ height: 100vh;
       max-width: 30vw;
       min-width: 25vw;
       justify-content: center;
-      align-items: center;
+      align-items: center; */
 box-shadow: none;
      
     }
  .Productform{
+  padding: 10px;
+  margin-top: 7rem;
+  align-items: center;
+  /* max-width: 10vw; */
+  min-width: 20vw;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+  display: grid;
+  grid: 89px /auto auto;
+  /* border: 1px solid black; */
 
-min-width: 20vw;
-/* border: 1px solid black; */
-/* min-height: 50vh; */
-/* max-height: 55vh; */
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
  }
     
     form {
@@ -114,3 +114,11 @@ form>label>h6{
       color: #666666;
       pointer-events: none;
     }
+
+
+    @media screen and (max-width: 550px) {
+      .Productform{
+         display: grid;
+     grid: 89px/auto;
+      }
+       }

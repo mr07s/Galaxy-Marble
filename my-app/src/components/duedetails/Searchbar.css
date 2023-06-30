@@ -27,3 +27,8 @@ justify-content: right;
     color: rgb(14, 14, 14);
     /* border: 3px solid white; */
 }
+@media screen and (max-width: 1150px) {
+    .searchbar{
+        margin-top: 0;
+    }
+}

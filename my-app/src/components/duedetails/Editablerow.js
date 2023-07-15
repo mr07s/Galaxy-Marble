@@ -46,8 +46,12 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
 
     const newFormData = { ...editFormData };
     newFormData[fieldName] = fieldvalue;
+    console.log("newFormData");
     console.log(newFormData);
     seteditFormData(newFormData);
+    // console.log('setnewFormData');
+    // console.log(newFormData);
+
   };
 
 
@@ -109,7 +113,8 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
 
 
 
-    // console.log(editeddata);
+    console.log("editFormData");
+    console.log(editFormData);
     dispatch(updatecustomer(data._id, editFormData));
     dispatch(getdetails());
     handleCancleclick();
@@ -119,7 +124,7 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
   // console.log(addFormData);
 
 
-
+// const [actualPrice,setActualPrice] =useState(editFormData.price);
 
   return (
     <tr key={editFormData._id}>
@@ -142,11 +147,20 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
           onChange={handleEditchange}
         />
       </td>
-      <td>
+      {/* <td>
         <input
           type="number"
           name="price"
           placeholder="price"
+          value={data?.price}
+          // onChange={handleEditchange}
+        />
+      </td> */}
+      <td>
+        <input
+          type="number"
+          name="price"
+          placeholder="duePayment"
           value={editFormData.price}
           onChange={handleEditchange}
         />

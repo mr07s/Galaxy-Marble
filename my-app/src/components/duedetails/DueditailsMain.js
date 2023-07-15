@@ -41,7 +41,9 @@ const DueditailsMain = () => {
 
 
   const duedetails = useSelector(state => state.customerReducer);
+  console.log("duedetails");
   console.log(duedetails);
+  // console.log(duedetails.data[100].price);
 
   // console.log(duedetails);
 
@@ -90,17 +92,17 @@ const DueditailsMain = () => {
     }
 
     if (search.toLowerCase() !== '') {
-      // if(data.Name.toLowerCase().includes(search)){
-      //   return data.Name.toLowerCase().includes(search);
-      // }
+      if(data.Name.toLowerCase().includes(search)){
+        return data.Name.toLowerCase().includes(search);
+      }
 
-      if (data?.undertakenby?.toLowerCase().includes(search)) {
+      else if (data?.undertakenby?.toLowerCase().includes(search)) {
         return data.undertakenby.toLowerCase().includes(search);
       }
 
-      else if (data?.Name?.toLowerCase().includes(search)) {
-        return data.Name.toLowerCase().includes(search);
-      }
+      // else if (data?.Name?.toLowerCase().includes(search)) {
+      //   return data.Name.toLowerCase().includes(search);
+      // }
 
       // else if(data.purchasingdate.includes(search)){
       //   return data.purchasingdate.includes(search);
@@ -358,14 +360,32 @@ const DueditailsMain = () => {
 
   }
 
+const totaldue =()=>{
 
+try {
+  let total=0;
+  duedetails?.data?.filter(Data=>(
+    Data.userId === userId
+  )).map(data=>{
+    total =total+(+(data.price))
+    console.log(total)
+  })
+
+  return total;
+} catch (error) {
+  console.log(error);
+}
+
+
+
+}
   //Add data to local storage
   // useEffect(() => {
   // localStorage.setItem('info',JSON.stringify(customer))
   // }, [customer])
 
   // const [totalDue, setTotalDue] = useState(0);
-  let totalDue = 0
+  // let totalDue = 0
 
   return (
     <div className='bodybox'>
@@ -380,7 +400,11 @@ const DueditailsMain = () => {
         {/* <button onClick={add} className='formaddbtn' >{editform ? 'Close' : 'Add'}</button>
         {editform &&
           <Editform />} */}
-
+<div className="totalDue">
+  <h1>
+  TotalDue  :&nbsp;{totaldue()} &nbsp;Ruppes
+  </h1>
+  </div>
         <form className='form'>
 
           <table>

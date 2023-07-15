@@ -8,7 +8,8 @@ const Readonlyrow = ({ data, handleEditclick, handleDeleteclick, index }) => {
       <td>{index + 1}</td>
       <td><Link to={`/paymenthistory/${data._id}`}>{data.Name}</Link></td>
       <td>{data.undertakenby}</td>
-      <td>{data.price}</td>
+      {/* <td>{data?.price}</td>// This newprice indicate the actual price amount */}
+      <td>{data.price}</td>                 {/* this price idicates the due amaount */}
       <td>{data.purchasingdate}</td>
       <td>{data.duedate}</td>
       <td>{data.nextpaymentdate|| 0}</td>

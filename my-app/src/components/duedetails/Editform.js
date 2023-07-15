@@ -33,6 +33,7 @@ const Editform = () => {
     Name: "",
     undertakenby: "",
     price: "",
+    // price:"",//This is made intentionally to send the actual price to data base go check the backend file :/models/customer.js  ,actualprice atfirst will be equaltoprice and the price in here represents the due price
     purchasingdate: "",
     nextpaymentdate:"",
     duedate: "",

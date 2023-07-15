@@ -6,7 +6,8 @@ const Tablehead = () => {
       <th>SerialNo</th>
       <th>NAME</th>
       <th>UNDERTAKEN-BY</th>
-      <th>PRICE / DUE-PAYMENT</th>
+      {/* <th>PRICE</th> */}
+      <th>PRICE/DUE-PAYMENT</th>
       <th>PURCHASE-DATE</th>
       <th>PAYMENT-DATE</th>
       <th>Next-PAYMENT-DATE</th>

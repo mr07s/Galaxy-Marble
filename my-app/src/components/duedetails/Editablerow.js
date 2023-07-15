@@ -72,6 +72,7 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
 
 
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -85,6 +86,7 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
         // console.log("Okk")
         editFormData["price"] = parseInt(oldPrice) - editFormData["paidamount"];
         editFormData["paidamount"] = parseInt(oldPaidAmount) + parseInt(editFormData["paidamount"]);
+       
 
       }
       else if (parseInt(editFormData["price"]) - parseInt(editFormData['paidamount']) < 0) {
@@ -125,7 +127,7 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
 
 
 // const [actualPrice,setActualPrice] =useState(editFormData.price);
-
+const ActualPrice =(+editFormData.paidamount) + (+editFormData.price);
   return (
     <tr key={editFormData._id}>
       <td>{index + 1}</td>
@@ -147,15 +149,15 @@ const Editablerow = ({ handleCancleclick, index, data }) => {
           onChange={handleEditchange}
         />
       </td>
-      {/* <td>
+      <td>
         <input
           type="number"
           name="price"
           placeholder="price"
-          value={data?.price}
+          value={ActualPrice}
           // onChange={handleEditchange}
         />
-      </td> */}
+      </td>
       <td>
         <input
           type="number"

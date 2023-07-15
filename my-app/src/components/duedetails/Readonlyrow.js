@@ -1,14 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import  {useActualPrice}  from '../context/Actualprice';
 
 const Readonlyrow = ({ data, handleEditclick, handleDeleteclick, index }) => {
-  console.log(data._id)
+  // const [actualPrice,setActualPrice]=useActualPrice();
+
+// setActualPrice( ((+data?.price)+(+data?.paidamount)));
+// console.log(data.price)
+// console.log(data?.paidamount)
+// console.log("actualPrice")
+// console.log(actualPrice)
+  // console.log(data._id)
+  const ActualPrice =((+data?.price)+(+data?.paidamount));
   return (
     <tr key={data?._id}>
       <td>{index + 1}</td>
       <td><Link to={`/paymenthistory/${data._id}`}>{data.Name}</Link></td>
       <td>{data.undertakenby}</td>
-      {/* <td>{data?.price}</td>// This newprice indicate the actual price amount */}
+      <td>{ActualPrice}</td> {/*// This newprice indicate the actual price amount*/}
       <td>{data.price}</td>                 {/* this price idicates the due amaount */}
       <td>{data.purchasingdate}</td>
       <td>{data.duedate}</td>

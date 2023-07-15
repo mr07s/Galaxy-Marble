@@ -10,10 +10,12 @@ import thunk from 'redux-thunk'
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom"
 import Reducers from './reducers'
+import { ActualPriceProvider } from './components/context/Actualprice';
 
 const store =configureStore({reducer:Reducers},compose(applyMiddleware(thunk)))
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
+  <ActualPriceProvider>
   <Provider store={store}>
   <React.StrictMode>
 <BrowserRouter>
@@ -21,6 +23,7 @@ root.render(
 </BrowserRouter>
   </React.StrictMode>
   </Provider>
+  </ActualPriceProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
